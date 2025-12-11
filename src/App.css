@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body
+{
+    overflow-x: hidden;
+}
+
+.homepage_bg
+{
+    background:url('../src/assets/Images/bghome.svg');
+}
+.bg-gradient-ellipse-1 {
+  background: radial-gradient(circle at center, rgba(138, 43, 226, 0.2), rgba(255, 165, 0, 0.4),
+  rgba(248, 248, 255, 0.2));
+  filter: blur(68px);
+}
+.bg-gradient-ellipse-2 {
+  background: radial-gradient(circle at center, rgba(31,162,255,0.5), rgba(18,216,250,0.2), 
+  rgba(166,255,203,0.1));
+  filter: blur(68px);
+}
+.bg-gradient-ellipse-3 {
+  background: radial-gradient(circle at center, rgba(156, 236, 251, 1), rgba(101, 199, 247, 1),
+  rgba(0, 82, 212, 0.8));
+  filter: blur(60px);
+  
+}
+.spinner {
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   background: conic-gradient(#0000 10%,#474bff);
+   -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+   animation: spinner-zp9dbg 1s infinite linear;
+}
+
+@keyframes spinner-zp9dbg {
+   to {
+      transform: rotate(1turn);
+   }
+}
+input, select, textarea {
+  background-color: #0f172a; /* same as richblack-800 */
+  color: #f1f5f9; /* same as richblack-5 */
+  border: none;
+  outline: none;
+}
+
+/* Prevent color change on focus */
+input:focus, select:focus, textarea:focus {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+  outline: none;
+  border: 1px solid #0f172a; /* optional: keep layout stable */
+}
+
+/* 🔥 Critical part: fixes Chrome autofill / focus flash */
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #0f172a inset !important;
+  -webkit-text-fill-color: #f1f5f9 !important;
+  caret-color: #f1f5f9 !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+.blackButton {
+  @apply cursor-pointer rounded-md bg-richblack-800 px-[20px] py-[8px] font-semibold text-richblack-5;
+}
