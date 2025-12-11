@@ -3,7 +3,7 @@ import { Link, matchPath } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import logo from '../../assets/Logo/Logo-Full-Light.png'
 import { NavbarLinks } from '../../data/navbar-links'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { ACCOUNT_TYPE } from '../../utils/constant'
 import { FaShoppingCart } from "react-icons/fa";
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
@@ -11,7 +11,6 @@ import { getCategory } from '../../services/operations/auth_api'
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 const Navbar = () => {
-    const dispatch = useDispatch();
     const {token} = useSelector((state) => state.auth);
     const {user} = useSelector((state => state.profile));
     const {totalItems} = useSelector((state) => state.cart);
@@ -41,7 +40,7 @@ const Navbar = () => {
 
             {/* Section 1 */}
             <Link to="/">
-                <img src={logo} width={160} height={42} loading='lazy'/>
+                <img src={logo} width={160} height={42} alt='StudyNotionLogo' loading='lazy'/>
             </Link>
 
             {/* Section 2 */}
@@ -95,7 +94,7 @@ const Navbar = () => {
                     {/* For Cart */}
                     <div>
                         {
-                            user && user?.accountType != ACCOUNT_TYPE.INSTRUCTOR && (
+                            user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
                                 <Link to='/dashboard/cart' className='relative'>
                                     <FaShoppingCart width={30} className='relative'/>
                                     {

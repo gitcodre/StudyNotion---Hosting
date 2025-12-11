@@ -13,9 +13,7 @@ import { FaRegStar,FaStar } from "react-icons/fa";
 const ReviewSlider = () => {
     const{GETALLRATING_API} = ratingEndpoints;
     const [reviews,setReviews] = useState([]);
-    const[loading,setLoading] = useState(false);
     const fetchReview = async() => {
-        setLoading(true)
         try{
             const response = await apiConnector('GET',GETALLRATING_API);
             console.log('Review Response :',response);
@@ -30,7 +28,6 @@ const ReviewSlider = () => {
             console.error('Review not Fetched error : ',err);
             toast.error('Unable To Fetch Review');
         }
-        setLoading(false);
     }
     useEffect(() => {
         fetchReview();

@@ -53,7 +53,7 @@ const LearningGrid = () => {
                     return (
                         <div key={card.order}
                             className={` ${card.order < 0 && 'col-span-2'}
-                                ${card.order & 1 === 1 ? "bg-richblack-700" : "bg-richblack-800"}
+                                ${(card.order & 1) === 1 ? "bg-richblack-700" : "bg-richblack-800"}
                                 ${card.order === 3 && 'col-start-2'}
                             `}
                         >

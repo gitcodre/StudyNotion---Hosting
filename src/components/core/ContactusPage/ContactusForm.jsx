@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import CountryCode from '../../../data/countrycode.json'
 const ContactusForm = () => {
-    const [loading,setLoading] = useState(false);
     const {
         register,
         handleSubmit,
@@ -25,10 +24,9 @@ const ContactusForm = () => {
 
     const submitContactForm = async(data) => {
         try{
-            setLoading(true);
             const response = {status:'ok'};
+            console.log('Response',response)
             console.log('Form Data using Hook Form : ',data);
-            setLoading(false);
         }
         catch(err){
             console.log(err);

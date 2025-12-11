@@ -29,7 +29,7 @@ app.use(fileUpload({
 // For Cors which is used for coonecting frontend with backend
 app.use(
     cors({
-        origin:'http://localhost:3000',
+        origin:'https://studynotion-frontend.bzy.vercel.app',
         credentials:true,
 }))
 

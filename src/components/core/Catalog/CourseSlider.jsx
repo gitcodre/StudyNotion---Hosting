@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Course_Card from './Course_Card'
 import { Swiper,SwiperSlide } from 'swiper/react'
 import 'swiper/css'
