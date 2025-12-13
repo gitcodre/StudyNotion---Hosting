@@ -31,8 +31,10 @@ app.use(fileUpload({
 }));
 // For Cors which is used for coonecting frontend with backend
 app.use(
+    // Check karega ki request jo hai wo mere frontend se hi aana chaiye 
     cors({
         origin:[
+            // Frontend Url
             'http://localhost:3000',
             'https://studynotion-frontend-bay-two.vercel.app' 
         ],
