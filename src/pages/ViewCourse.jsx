@@ -4,12 +4,13 @@ import { Outlet, useParams } from 'react-router-dom'
 import CourseReviewModal from '../components/core/ViewCourse/CourseReviewModal';
 import { useDispatch } from 'react-redux';
 import { getStudentFullCourseDetails } from '../services/operations/course_api';
-import { setCompletedLectures, setCourseSectionData, setEntireCourseData, setTotalNoOfLectures } from '../slice/viewCourseSlice';
+import { setCourseSectionData, setEntireCourseData, setTotalNoOfLectures } from '../slice/viewCourseSlice';
 
 const ViewCourse = () => {
     const [createReviewModal,setCreateReviewModal] = useState(false);
     const {courseId} = useParams();
     const dispatch = useDispatch(); 
+    const [markedLectures,setMarkedLectures] = useState([]);
 
     const getFullCourseDetails = async () => {
         const courseData = await getStudentFullCourseDetails(courseId);
@@ -20,7 +21,6 @@ const ViewCourse = () => {
 
         dispatch(setEntireCourseData(courseData?.courseDetails));
         dispatch(setCourseSectionData(courseData?.courseDetails?.courseContent));
-        dispatch(setCompletedLectures(courseData?.completedVideos || []));
 
         let lecture = 0;
         courseData?.courseDetails?.courseContent.forEach((sec) => {
@@ -36,11 +36,11 @@ const ViewCourse = () => {
     <div>
         <div className='flex '>
             <div className='w-[20%] bg-richblack-800 min-h-screen '>
-                <ViewCourseSidebar setCreateReviewModal={setCreateReviewModal}/>
+                <ViewCourseSidebar setCreateReviewModal={setCreateReviewModal} markedLectures={markedLectures} setMarkedLectures={setMarkedLectures}/>
             </div>
 
             <div className='w-[80%]'>
-                <Outlet/>
+                <Outlet context={{ markedLectures, setMarkedLectures }}/>
             </div>
         </div>
         {/* Review Modal */}

@@ -29,6 +29,7 @@ export const course = {
     COURSEDETAILS_API : BASE_URL + '/course/getCourseDetails',
     FULLCOURSEDETAILS_API : BASE_URL + '/course/getFullCourseDetails',
     LECTURE_COMPLETION_API: BASE_URL + "/course/updateCourseProgress",
+    FETCHCOURSEPROGRESS_API : BASE_URL + '/course/fetchCourseProgress',
     INSTRUCTOR_DASHBOARD_API_URL : BASE_URL + '/profile/instructorDashboard'
 }
 export const section = {

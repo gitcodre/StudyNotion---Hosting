@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { FiUpload } from "react-icons/fi";
 import GenericBtn from '../../common/GenericBtn';
 import { updateDisplayPicture } from '../../../services/operations/profile_api';
-import toast from 'react-hot-toast';
 
 const ProfilePicture = ({user}) => {
 

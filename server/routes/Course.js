@@ -16,7 +16,7 @@ const{createSection,updateSection,deleteSection} = require('../controller/Sectio
 // For SubSection
 const{createSubSection,updateSubSection,deleteSubSection} = require('../controller/SubSection');
 
-const{updateCourseProgress} = require('../controller/CourseProgress');
+const{updateCourseProgress, fetchCourseProgress} = require('../controller/CourseProgress');
 // For Authentication middleware
 const {Auth,isStudent,isInstructor,isAdmin} = require('../middleware/auth');
 
@@ -61,6 +61,8 @@ router.post('/getCourseDetails', getCourseDetails);//Success Route
 
 // Course Progress
 router.post('/updateCourseProgress',Auth,isStudent,updateCourseProgress);
+router.post('/fetchCourseProgress',Auth,isStudent,fetchCourseProgress);
+
 
 
 

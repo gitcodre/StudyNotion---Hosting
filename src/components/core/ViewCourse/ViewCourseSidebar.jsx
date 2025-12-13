@@ -3,9 +3,11 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { FaAngleUp } from "react-icons/fa";
+import { apiConnector } from '../../../services/apiConnector';
+import { course } from '../../../services/api_url';
 
 
-const ViewCourseSidebar = ({setCreateReviewModal}) => {
+const ViewCourseSidebar = ({setCreateReviewModal,markedLectures,setMarkedLectures}) => {
 
     // Kaun sa Section Active hai
     const [activeStatus,setActiveStatus] = useState('');
@@ -15,7 +17,9 @@ const ViewCourseSidebar = ({setCreateReviewModal}) => {
     const location = useLocation(); 
     const {sectionId,subSectionId} = useParams();
 
-    const {courseSectionData,courseEntireData,completedLectures,totalNoOfLectures} = useSelector((state) => state.viewCourse);
+    const {courseSectionData,courseEntireData,totalNoOfLectures} = useSelector((state) => state.viewCourse);
+
+    const {FETCHCOURSEPROGRESS_API} = course
 
     useEffect(() => {
         if (!courseSectionData?.length) return;
@@ -39,6 +43,26 @@ const ViewCourseSidebar = ({setCreateReviewModal}) => {
 
     },[courseEntireData,courseSectionData,location.pathname])
 
+    useEffect(() => {
+        if (!courseEntireData?._id) return;
+        const fetchCourseProgress = async () => {
+            const courseId = courseEntireData?._id;
+            const response = await apiConnector('POST',FETCHCOURSEPROGRESS_API,{courseId});
+            console.log("Fetch CourseProgress Api Response : ",response);
+
+            const completed = response?.data?.data?.completedVideos || [];
+
+            // Extract only _id values
+            const ids = completed.map(item => item._id);
+
+            console.log("Completed Lecture IDs:", ids);
+            setMarkedLectures(ids);
+        }
+
+        fetchCourseProgress();
+
+    },[courseEntireData])
+
   return (
     <div className='text-richblack-5 mt-10 w-full'>
 
@@ -58,7 +82,7 @@ const ViewCourseSidebar = ({setCreateReviewModal}) => {
         {/* For Heading and completedLecture part */}
         <div className='ml-5 mt-5'>
             <p className='text-xl mb-1'>{courseEntireData?.courseName}</p>
-            <p className='text-richblack-300 font-semibold'>{completedLectures?.length} / {totalNoOfLectures}</p>
+            <p className='text-richblack-300 font-semibold'>{markedLectures?.length} / {totalNoOfLectures}</p>
         </div>
 
         {/* For Underline Part */}
@@ -106,7 +130,7 @@ const ViewCourseSidebar = ({setCreateReviewModal}) => {
                                                     <div className='w-[90%] p-2 flex items-center gap-x-2 mx-auto'>
                                                         <input 
                                                             type='checkbox'
-                                                            checked={completedLectures?.includes(subSec?._id)}
+                                                            checked={markedLectures?.includes(subSec?._id)}
                                                             onChange={() => {}}
                                                         />
                                                         <span className='text-sm'>{subSec.title}</span>

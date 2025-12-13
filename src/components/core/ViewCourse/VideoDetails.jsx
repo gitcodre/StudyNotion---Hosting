@@ -6,16 +6,17 @@ import { useLocation } from "react-router-dom"
 import { BigPlayButton, Player } from "video-react"
 
 import IconBtn from "../../common/GenericBtn"
-import { updateCompletedLectures } from "../../../slice/viewCourseSlice"
 import { markLectureAsComplete } from "../../../services/operations/course_api"
+import { useOutletContext } from "react-router-dom";
 
 const VideoDetails = () => {
+  const { markedLectures, setMarkedLectures } = useOutletContext();
   const { courseId, sectionId, subSectionId } = useParams()
   const navigate = useNavigate()
   const location = useLocation()
   const playerRef = useRef(null)
   const dispatch = useDispatch()
-  const { courseSectionData, courseEntireData, completedLectures } = useSelector((state) => state.viewCourse)
+  const { courseSectionData, courseEntireData } = useSelector((state) => state.viewCourse)
   const [videoData, setVideoData] = useState([])
   const [previewSource, setPreviewSource] = useState("")
   const [videoEnded, setVideoEnded] = useState(false)
@@ -43,7 +44,7 @@ const VideoDetails = () => {
         )
         // Particular subsection mil gya jo url mei tha
         console.log("filteredVideoData", filteredVideoData)
-        if (filteredVideoData.length > 0) {
+        if (filteredVideoData?.length > 0) {
           setVideoData(filteredVideoData[0]);
         } 
         setPreviewSource(courseEntireData?.thumbnail)
@@ -78,7 +79,7 @@ const VideoDetails = () => {
     )
 
     const noOfSubsections =
-      courseSectionData[currentSectionIndx].subSection.length
+      courseSectionData[currentSectionIndx].subSection?.length
 
     const currentSubSectionIndx = courseSectionData[
       currentSectionIndx
@@ -115,7 +116,7 @@ const VideoDetails = () => {
     )
 
     const noOfSubsections =
-      courseSectionData[currentSectionIndx].subSection.length
+      courseSectionData[currentSectionIndx].subSection?.length
 
     const currentSubSectionIndx = courseSectionData[
       currentSectionIndx
@@ -158,7 +159,7 @@ const VideoDetails = () => {
       // Prev Section ke last subsection pr aana hai iska mtlb dono section aur subsection ki id change hogi
       const prevSectionId = courseSectionData[currentSectionIndx - 1]._id
       const prevSubSectionLength =
-        courseSectionData[currentSectionIndx - 1].subSection.length
+        courseSectionData[currentSectionIndx - 1].subSection?.length
       const prevSubSectionId =
         courseSectionData[currentSectionIndx - 1].subSection[
           prevSubSectionLength - 1
@@ -171,20 +172,11 @@ const VideoDetails = () => {
 
   const handleLectureCompletion = async () => {
     setLoading(true)
-    console.log("hii");
     const res = await markLectureAsComplete({ courseId: courseId, subSectionId: subSectionId })
+    setMarkedLectures((prev) => [...prev, subSectionId])
     console.log('Response Hello : ',res);
-    if (res) {
-      console.log('subSectionId : ',subSectionId);
-      dispatch(updateCompletedLectures(subSectionId));
-    }
     setLoading(false)
   }
-
-  useEffect(() => {
-  console.log("Completed from store:", completedLectures)
-  console.log("Current subSection:", subSectionId)      
-}, [completedLectures, subSectionId])
 
   return (
     <div className="flex flex-col gap-5 text-white">
@@ -213,7 +205,7 @@ const VideoDetails = () => {
               className="full absolute inset-0 z-[100] grid h-full place-content-center font-inter"
             >
               {/* Mark as Completed Button */}
-              {!completedLectures.includes(subSectionId) && (
+              {!markedLectures.includes(subSectionId) && (
                 <IconBtn
                   disabled={loading}
                   onclick={() => handleLectureCompletion()}
@@ -262,8 +254,8 @@ const VideoDetails = () => {
         </Player>
       )}
 
-      <h1 className="mt-4 text-3xl font-semibold">{videoData?.title}</h1>
-      <p className="pb-6">{videoData?.description}</p>
+      <h1 className="ml-2 mt-4 text-3xl font-semibold">{videoData?.title}</h1>
+      <p className="ml-2 pb-6">{videoData?.description}</p>
     </div>
   )
 }

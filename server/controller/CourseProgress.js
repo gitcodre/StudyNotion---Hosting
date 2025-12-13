@@ -65,3 +65,43 @@ exports.updateCourseProgress = async(req,res) => {
     }
 
 }   
+
+exports.fetchCourseProgress = async(req,res) => {
+    try
+    {
+        const {courseId} = req.body;
+        const userId = req.user.id;
+        if (!courseId) {
+            return res.status(400).json({
+                success: false,
+                message: "courseId is required",
+            });
+        }
+
+        const courseProgress = await CourseProgress.findOne(
+            {courseId,userId}
+        ).populate('completedVideos');
+
+        if (!courseProgress) {
+            return res.status(404).json({
+                success: false,
+                message: "No progress found for this course",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Course progress fetched successfully",
+            data: courseProgress,
+        });
+
+    }
+    catch(err)
+    {
+        console.error(error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+        });
+    }
+}

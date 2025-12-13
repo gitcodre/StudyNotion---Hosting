@@ -17,6 +17,8 @@ require('dotenv').config();
 const PORT = process.env.PORT || 4000;
 
 
+const seedCategories = require('./util/seedCategories');
+
 // Import middlewares
 app.use(express.json());
 // For Using Cookies
@@ -29,7 +31,7 @@ app.use(fileUpload({
 // For Cors which is used for coonecting frontend with backend
 app.use(
     cors({
-        origin:'https://studynotion-frontend.bzy.vercel.app',
+        origin:'http://localhost:3000',
         credentials:true,
 }))
 
@@ -38,6 +40,8 @@ app.use(
 dbConnect();
 // Connect with cloudinary 
 cloudinaryConnect();
+
+seedCategories();
 
 // Mount Routes
 app.use('/api/v1/auth',userRoutes);

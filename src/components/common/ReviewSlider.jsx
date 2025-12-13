@@ -13,7 +13,9 @@ import { FaRegStar,FaStar } from "react-icons/fa";
 const ReviewSlider = () => {
     const{GETALLRATING_API} = ratingEndpoints;
     const [reviews,setReviews] = useState([]);
+    const [loading,setLoading] = useState(false);
     const fetchReview = async() => {
+        setLoading(true);
         try{
             const response = await apiConnector('GET',GETALLRATING_API);
             console.log('Review Response :',response);
@@ -28,6 +30,7 @@ const ReviewSlider = () => {
             console.error('Review not Fetched error : ',err);
             toast.error('Unable To Fetch Review');
         }
+        setLoading(false);
     }
     useEffect(() => {
         fetchReview();
@@ -36,13 +39,29 @@ const ReviewSlider = () => {
         console.log('Review : ',reviews);
     })
 
+    if (loading) {
+        return (
+            <div className="text-center text-richblack-5 py-8">
+                Loading Reviews...
+            </div>
+        );
+    }
+    
+    // Check 1: If loading is false, check if the reviews array is empty
+    if (reviews.length === 0) {
+        return (
+            <div className="text-center text-richblack-5 text-xl font-semibold py-8">
+                No reviews found yet.
+            </div>
+        );
+    }
+
   return (
     <div className='text-richblack-5'>
         <Swiper
             slidesPerView={4}
-            loop={true}
+            loop={reviews.length > 3}
             spaceBetween={25}
-            enteredSlides={true}
             autoplay={{
                 delay: 4000,
                 disableOnInteraction: false,

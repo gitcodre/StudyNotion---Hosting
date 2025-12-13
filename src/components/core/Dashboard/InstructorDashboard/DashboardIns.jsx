@@ -117,11 +117,16 @@ const DashboardIns = () => {
 
                 </div>
             ) : (
-            <div className='mt-10 flex justify-between'>
-                <p className='text-xl'>You have not Created a Course</p> 
-                <Link to={'/dashboard/add-course'}>
-                    Create a Course
-                </Link>
+            <div className='flex justify-center items-center h-screen -mt-32'>
+                <div className='flex flex-col gap-y-2'>
+                    <p className='text-2xl'>You have not Created a Course</p> 
+
+                    <Link to={'/dashboard/add-course'} className='mx-auto'>
+                        <p className='bg-yellow-50 p-2 px-3 rounded-md text-black animate-pulse w-fit'>
+                            Create a Course
+                        </p>
+                    </Link>
+                </div>
 
             </div>)
         }

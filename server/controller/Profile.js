@@ -4,6 +4,7 @@ const {uploadImageToCloudinary} = require('../util/imageUploader');
 const { convertSecondsToDuration } = require('../util/secToDuration');
 const CourseProgress = require('../models/CourseProgress');
 const Course = require('../models/Course');
+const { ACCOUNT_TYPE } = require('../../src/utils/constant');
 exports.updateProfile= async(req,res) => {
     try
     {
@@ -170,10 +171,13 @@ exports.getEnrolledCourses = async (req, res) => {
             SubsectionLength +=
               userDetails.courses[i].courseContent[j].subSection.length
           }
+          console.log('Course Id :', userDetails.courses[i]._id);
           let courseProgressCount = await CourseProgress.findOne({
-            courseID: userDetails.courses[i]._id,
+            courseId: userDetails.courses[i]._id,
             userId: userId,
           })
+          // console.log('Course Progress Count : ', courseProgressCount);
+
           courseProgressCount = courseProgressCount?.completedVideos.length
           if (SubsectionLength === 0) {
             userDetails.courses[i].progressPercentage = 100
