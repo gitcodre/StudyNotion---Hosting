@@ -14,6 +14,7 @@ const dbConnect = require('./config/database');
 const {cloudinaryConnect} = require('./config/cloudinary');
 const cors = require('cors');
 require('dotenv').config();
+
 const PORT = process.env.PORT || 4000;
 
 
@@ -31,7 +32,10 @@ app.use(fileUpload({
 // For Cors which is used for coonecting frontend with backend
 app.use(
     cors({
-        origin:'http://localhost:3000',
+        origin:[
+            'http://localhost:3000',
+            'https://studynotion-frontend-bay-two.vercel.app' 
+        ],
         credentials:true,
 }))
 
