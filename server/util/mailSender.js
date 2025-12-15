@@ -75,3 +75,4 @@ const mailSender = async (email, title, body) => {
 };
 
 module.exports = mailSender;
+
