@@ -226,6 +226,8 @@ exports.login = async(req,res) => {
             const options = {
                 expires: new Date(Date.now() + 3*24*60*60*1000),
                 httpOnly:true,
+                secure: true,        // REQUIRED: Only sends cookie over HTTPS
+                sameSite: 'None',
 
             }
             // Ye jo token hai wo user ke pass aa gaya now he can use it to make request 
