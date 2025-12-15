@@ -36,7 +36,7 @@ app.use(
         origin:[
             // Frontend Url
             'http://localhost:3000',
-            'https://studynotion-frontend-bay-two.vercel.app' 
+            'https://studynotion-frontend-bay-two.vercel.app',
         ],
         credentials:true,
 }))
