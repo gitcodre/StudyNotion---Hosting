@@ -25,6 +25,7 @@
     "nodemon": "^3.1.10",
     "otp-generator": "^4.0.1",
     "razorpay": "^2.9.6",
+    "resend": "^6.6.0",
     "upload-files-express": "^0.4.0"
   }
 }
