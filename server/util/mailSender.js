@@ -11,6 +11,18 @@ const mailSender = async(email,title,body) =>{
             },
             secure:false,
         })
+        console.log("MAIL_USER:", process.env.MAIL_USER);
+        console.log("TO EMAIL:", email);
+        console.log("TITLE:", title);
+
+        if (!process.env.MAIL_USER) {
+        throw new Error("MAIL_USER env variable missing");
+        }
+
+        if (!email || !email.includes("@")) {
+        throw new Error("Invalid recipient email");
+        }
+
         let infoMail = await transporter.sendMail({
             from: `"StudyNotion || Codehelp - by Animesh" <${process.env.MAIL_USER}>`,
             to:`${email}`,
