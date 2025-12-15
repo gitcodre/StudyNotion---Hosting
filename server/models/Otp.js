@@ -18,23 +18,40 @@ const otpSchema = new mongoose.Schema({
     },
 })
 
-otpSchema.pre('save', async function(next)
-{
-    try
-    {
-        const mailResponse = await mailSender(this.email,
+// --- Function to send email ---
+async function sendVerificationEmail(email, otp) {
+    try {
+        const mailResponse = await mailSender(
+            email,
             "Verification Email from StudyNotion",
-            emailTemplate(this.otp)
+            emailTemplate(otp)
         );
         console.log('Email Sent Successfully: ', mailResponse);
-        next();
-    }
-    catch(err)
-    {
+    } catch (err) {
         console.log('Error Occured while Sending mail');
         console.error(err.message);
-        next(err);
+        // Re-throw the error so the Mongoose save operation is aborted
+        throw err; 
     }
-})
+}
+
+// --- Pre-save Hook ---
+otpSchema.pre('save', async function(next)
+{
+    // FIX: Only send email when a new document is created
+    if (this.isNew) { 
+        try {
+            await sendVerificationEmail(this.email, this.otp);
+            next(); // Proceed with saving after email is successfully sent
+        } catch (err) {
+            // If sendVerificationEmail throws an error, Mongoose will catch it 
+            // and skip the save operation, which is the desired behavior.
+            next(err); // Pass the error to Mongoose for proper handling
+        }
+    } else {
+        // If the document is not new (e.g., being updated, though unlikely for OTP)
+        next(); 
+    }
+});
 
 module.exports = mongoose.model('Otp',otpSchema);
