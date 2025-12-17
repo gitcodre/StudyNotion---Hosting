@@ -59,7 +59,7 @@ const mailSender = async (email, title, body) => {
     }
 
     const response = await resend.emails.send({
-      from: "StudyNotion <onboarding@resend.dev>", // works instantly
+      from: "StudyNotion <support@mailxyz.online>", // works instantly
       to: email,
       subject: title,
       html: body,
