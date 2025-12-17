@@ -394,7 +394,7 @@ exports.getFullCourseDetails = async (req, res) => {
 
     console.log('CourseDetails : ',courseDetails);
 
-    if (courseDetails.status === "Draft" && courseDetails.instructor.toString() !== userId) {
+    if (courseDetails.status === "Draft" && courseDetails?.instructor?.accountType !== 'Instructor') {
       return res.status(403).json({
         success: false,
         message: `Accessing a draft course is forbidden`,
