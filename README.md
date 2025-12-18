@@ -43,8 +43,8 @@ This project was a major milestone in my journey as a developer. Over 4 months o
 
 ## 📸 Screenshots
 <img width="1901" height="1022" alt="image" src="https://github.com/user-attachments/assets/a200b1ee-366c-4a76-a176-166eb6b37478" />
-<img width="1898" height="1022" alt="image" src="https://github.com/user-attachments/assets/d121fd28-6a1b-4f0b-9157-2ada52c8da19" />
 <img width="1899" height="1020" alt="image" src="https://github.com/user-attachments/assets/47662835-1906-4915-bcaa-07cb46098c3a" />
+<img width="1898" height="1022" alt="image" src="https://github.com/user-attachments/assets/d121fd28-6a1b-4f0b-9157-2ada52c8da19" />
 
 
 
