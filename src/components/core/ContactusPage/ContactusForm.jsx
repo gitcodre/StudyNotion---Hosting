@@ -39,12 +39,12 @@ const ContactusForm = () => {
         <div className='flex flex-col gap-2 pb-2'>
 
             {/* FirstName & Lastname */}
-            <div className='flex gap-10'>
+            <div className='md:flex gap-10'>
                 {/* First Name */}
-                <div className='flex flex-col'>
+                <div className='flex flex-col md:px-0 px-[1rem]'>
                     <label htmlFor='firstname'>First Name</label>
                     <input
-                        className='bg-richblack-800 mt-2 mb-4 w-[15rem] p-2 rounded-md outline-none'
+                        className='bg-richblack-800 mt-2 mb-4 md:w-[15rem] p-2 rounded-md outline-none'
                         type='text'
                         name='firstname'
                         id='firstname'
@@ -60,10 +60,10 @@ const ContactusForm = () => {
                     }
                 </div>
                 {/* Last Name */}
-                <div className='flex flex-col'>
+                <div className='flex flex-col md:px-0 px-[1rem]'>
                     <label htmlFor='lastname'>Last Name</label>
                     <input
-                        className='bg-richblack-800 mt-2 mb-4 p-2 w-[18rem] rounded-md outline-none'
+                        className='bg-richblack-800 mt-2 mb-4 p-2 lg:w-[18rem] rounded-md outline-none'
                         type='text'
                         name='lastname'    
                         id='lastname'
@@ -75,7 +75,7 @@ const ContactusForm = () => {
             </div>
 
             {/* Email */}
-            <div className='flex flex-col'>
+            <div className='flex flex-col md:px-0 px-[1rem]'>
                     <label htmlFor='email'>Email Address</label>
                     <input
                         className='bg-richblack-800 mt-2 mb-4 w-full p-2 rounded-md outline-none'
@@ -95,12 +95,12 @@ const ContactusForm = () => {
             </div>
 
             {/* Phone No */}
-            <div className='flex flex-col'>
+            <div className='flex flex-col md:px-0 px-[1rem]'>
                 <label htmlFor='Phonenum'>Phone Number</label>
 
                 <div className='flex gap-2'>
                     <select
-                        className='bg-richblack-800 mt-2 mb-4 w-[15%] p-2 rounded-md outline-none text-richblack-5'
+                        className='bg-richblack-800 mt-2 mb-4 md:w-[15%] w-[25%] p-2 rounded-md outline-none text-richblack-5'
                         name='Phonenum'
                         id='Phonenum'
                         defaultValue='+91'
@@ -148,7 +148,7 @@ const ContactusForm = () => {
             </div>
 
             {/* Message */}
-            <div>
+            <div className='md:px-0 px-[1rem]'>
                 <label htmlFor='message'>Message</label>
                 <br/>
                 <textarea
@@ -170,7 +170,7 @@ const ContactusForm = () => {
             </div>
             
             {/* Send Message Button */}
-            <button type='submit' className='bg-yellow-50 w-[100%] p-2 rounded-md text-richblack-900 '>
+            <button type='submit' className='bg-yellow-50 md:w-[100%] w-[90%] md:ml-0 ml-[1rem] p-2 rounded-md text-richblack-900 '>
                 Send Message
             </button>
 

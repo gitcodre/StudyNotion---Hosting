@@ -28,11 +28,11 @@ const timeline = [
 ]
 const TimelineSection = () => {
   return (
-    <div className='flex gap-15 pt-[2rem]'>
+    <div className='md:flex gap-15 md:pt-[2rem] md:mt-0 -mt-[3rem]'>
 
         {/* Left Section */}
         {/* H.W To add dotted lines */}
-        <div className='w-[40%] flex flex-col gap-12 pt-20'>
+        <div className='md:w-[40%] flex flex-col md:gap-12 gap-2 pt-20 md:mb-0 mb-10'>
             {
                 timeline.map((element,index) => {
                     return(
@@ -52,20 +52,21 @@ const TimelineSection = () => {
         </div>
 
         {/* Right Section */}
-        <div className='w-[55%] relative'>
-            <img src={TimelineImage} className='z-10 relative shadow-[15px_15px_0_#ffffff]'></img>
-            <div className='left-24 z-20 -bottom-12 flex items-center uppercase absolute w-[70%] h-[20%] text-white bg-caribbeangreen-700 gap-12'>
-                <div className='flex w-[50%] gap-4 border-r-2 pl-10 pr-20 border-caribbeangreen-500'>
+        <div className='md:w-[55%] relative'>
+            <img src={TimelineImage} className='lg:top-0 md:top-20 z-10 relative shadow-[15px_15px_0_#ffffff]'></img>
+            <div className='lg:left-24 md:left-[12rem] left-10 z-20 lg:-bottom-12 md:-bottom-8 flex items-center uppercase absolute lg:w-[70%] h-[20%] text-white bg-caribbeangreen-700 lg:gap-12 gap-3 lg:pl-0 md:pl-2'>
+
+                <div className='flex w-[50%] gap-4 border-r-2 lg:pl-10 pr-10 lg:pr-20 border-caribbeangreen-500'>
                     <p className='text-3xl font-semibold'>10</p>
                     <p className=' text-sm text-caribbeangreen-300'>Years Experiences</p>
                 </div>
-                <div className='flex w-[50%] gap-4'>
+                <div className='flex items-center w-[50%] gap-4'>
                     <p className='text-3xl font-semibold'>250</p>
                     <p className='text-sm text-caribbeangreen-300'>Types of Courses</p>
                 </div>
                 
             </div>
-            <div className='absolute w-[700px] z-0 top-48 left-0 h-[260px] bg-gradient-ellipse-3'></div>
+            <div className='absolute md:w-[700px] w-[400px] z-0 lg:top-48 md:top-20 top-0 left-0 h-[260px] bg-gradient-ellipse-3'></div>
         </div>
 
     </div>

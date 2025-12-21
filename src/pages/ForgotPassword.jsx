@@ -23,13 +23,13 @@ const ForgotPassword = () => {
     <div className='text-richblack-5'>
         {
             (loading) ? <Spinner/> : (
-                <div className='w-[508px] h-[448px]  mt-28  mx-auto flex flex-col justify-center gap-y-2 '>
+                <div className='md:w-[508px] md:h-[448px] md:pl-0 pl-10 mt-28 mx-auto flex flex-col justify-center gap-y-2 '>
                     
                     <h1 className='text-2xl'>
                         {!emailPresent? "Reset your password" : "Check email" }
                     </h1>
 
-                    <p className='text-richblack-100 my-2 text-sm pr-[8rem]'>{!emailPresent ? "Have no fear. We’ll email you instructions to reset your password.If you dont have access to your email we can try account recovery" : `We have sent the reset email to ${email}` }
+                    <p className='text-richblack-100 my-2 text-sm md:pr-[8rem] pr-[5rem]'>{!emailPresent ? "Have no fear. We’ll email you instructions to reset your password.If you dont have access to your email we can try account recovery" : `We have sent the reset email to ${email}` }
                     </p>
 
                     <form onSubmit={handleOnSubmit}>

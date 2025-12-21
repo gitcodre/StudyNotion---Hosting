@@ -55,7 +55,7 @@ const Catalog = () => {
             <div className='text-richblack-5'>
 
                 <div className='bg-richblack-800 pb-24'>
-                    <div className='w-[30%] ml-60 pt-20 flex flex-col gap-4'>
+                    <div className='md:w-[30%] md:ml-60 ml-10 pt-20 flex flex-col gap-4'>
                         {/* Links */}
                         <p className='text-richblack-100'>Home / Catalog / <span className='text-yellow-50'>{catalogPageData?.data?.selectedCategory?.name}</span></p>
                         {/* Heading */}
@@ -69,7 +69,7 @@ const Catalog = () => {
                     </div>
                 </div>
 
-                <div className='w-[75%] pl-10 pt-10 mx-auto'>
+                <div className='md:w-[75%] md:pl-10 pl-5 pt-10 mx-auto'>
                     {/* Section 1 */}
                     <div className='flex flex-col mb-20'>
                         <h2 className='text-2xl font-semibold mb-4'>Courses to get you started</h2>
@@ -79,29 +79,30 @@ const Catalog = () => {
                         </div>
                         <div className='w-[90%] h-1 border-b-2 mb-2 border-richblack-5'></div>
                         {/* Selected category course ka data aayega */}
-                        <div className='mt-5 pr-10'>
+                        <div className='mt-5 md:pr-10 pr-5'>
                             <CourseSlider Courses={catalogPageData?.data?.selectedCategory?.course} />
                         </div>
                     </div>
 
                     {/* Section 2 */}
-                    <div className='mb-20'>
+                    <div className='md:mb-20 mb-10'>
                         <h2 className='text-2xl font-semibold mb-2'>Top Courses in {catalogPageData?.data?.differentCategory?.name}</h2>
                         {/* Different Category ke course ka data aayega */}
-                        <div className='mt-5 pr-10'>
+                        <div className='mt-5 md:pr-10 pr-5'>
                             <CourseSlider Courses={catalogPageData?.data?.differentCategory?.course} />
                         </div>
                     </div>
+
                     {/* Section 3 */}
                     <div className='pb-10'>
                         <h2 className='text-2xl font-semibold mb-2'>Frequently Bought</h2>
                         {/* Most selling course ka data aayega */}
-                        <div className='py-8'>
+                        <div className='py-8 md:pr-0 pr-5'>
                             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 gap-y-10'>
                                 {
                                     catalogPageData?.data?.mostSellingCourses?.slice(0,4)
                                     .map((course,index) => (
-                                        <Course_Card course={course} key={index} Height={'h-[400px]'} />
+                                        <Course_Card course={course} key={index} Height={'md:h-[400px] h-[230px]'} />
                                     ))
                                 }
                             </div>

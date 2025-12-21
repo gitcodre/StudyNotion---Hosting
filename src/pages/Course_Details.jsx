@@ -99,33 +99,38 @@ const Course_Details = () => {
 
   return (
     <div className='w-full text-richblack-5 pb-20'>
+
         <div className='bg-richblack-700'>
-            <div className='w-10/12 relative mx-auto'>
+
+            <div className='lg:w-10/12 relative mx-auto'>
+
                 <div className='py-20 pl-5 flex flex-col gap-y-2'>
+                    
                     <h2 className='text-3xl font-semibold '>My Course</h2>
                     <p className='text-richblack-200'>
                         {
                             courseData?.courseDescription.length > 20 ? 
-                            courseData.courseDescription.slice(0,20) : 
+                            courseData.courseDescription.slice(0,30) : 
                             courseData?.courseDescription
                         }
                     </p>
-                    <div className='flex gap-x-2'>
+                    <div className='flex gap-x-2 items-center'>
                         <p>{averageRating}</p>
                         <RatingStars Review_Count={averageRating}/>
-                        <p>({courseData?.ratingAndReview.length || 0} reviews)</p>
-                        <p>{courseData?.studentEnrolled.length || 0} students Enrolled</p>
+                        <p className='md:text-base text-sm'>({courseData?.ratingAndReview.length || 0} reviews)</p>
+                        <p className='md:text-base text-sm'>{courseData?.studentEnrolled.length || 0} students Enrolled</p>
                     </div>
                     <p>Created By {courseData?.instructor?.firstName} {courseData?.instructor?.lastName}</p>
                     <p className='flex gap-x-2 items-center'>
                         <IoMdInformationCircleOutline/>
-                        <div>Created at {formatDate(courseData?.createdAt)}</div>
-                        <div className='flex items-center gap-x-2'>
+                        <div className='md:text-base text-sm'>Created at {formatDate(courseData?.createdAt)}</div>
+                        <div className='flex items-center gap-x-2 md:text-base text-sm'>
                             <CiGlobe/> English
                         </div>
                     </p>
 
                 </div>
+
                 <div>
                     <CourseDetailsCard 
                         courseData={courseData} 
@@ -133,33 +138,41 @@ const Course_Details = () => {
                         setConfirmationModal={setConfirmationModal}
                     />
                 </div>
+
             </div>
+
         </div>
-        <div className='w-10/12 mx-auto'>
-            <div className='w-[60%] py-10 flex flex-col gap-y-3 pl-5 mt-12 border border-blue-200 border-dotted'>
+
+        <div className='w-10/12 lg:mx-auto lg:pl-0 pl-5'>
+
+            <div className='md:w-[60%] py-10 flex flex-col gap-y-3 pl-5 mt-12 border border-blue-200 border-dotted'>
                 <h2 className='text-3xl'>What you'll learn</h2>
                 <p className='text-richblack-200'>
                 {
-                    courseData?.whatYouWillLearn.length > 20 ? 
+                    courseData?.whatYouWillLearn.length > 30 ? 
                     courseData.whatYouWillLearn.slice(0,20) : 
                     courseData?.whatYouWillLearn
                 }
                 </p>
             </div>
+
             <div className='mt-10'>
-                <h2 className='text-3xl'>Course Content</h2>
-                <div className='w-[60%] flex justify-between items-center'>
-                    <div className='mt-2 flex gap-x-2'>
+
+                <h2 className='text-3xl md:mb-0 mb-5'>Course Content</h2>
+
+                <div className='md:w-[60%] w-[450px] md:flex justify-between items-center'>
+                    <div className='mt-2 flex gap-x-2 md:mb-0 mb-2'>
                         <p>{courseData?.courseContent.length} Sections</p>
                         <p>{totalNoOfLectures} lecture(s)</p>
-                        <p>{courseData?.totalDuration} total length</p>
+                        <p>2h 18m total length</p>
                     </div>
-                    <button className='text-yellow-100'
+                    <button className='text-yellow-100 w-fit '
                         onClick={() => setIsActive([])}
                     >
                         Collapse all sections
                     </button>
                 </div>
+
                 {/* Section Subsection */}
                 <div>
                     {
@@ -173,6 +186,7 @@ const Course_Details = () => {
                         ))
                     }
                 </div>
+
             </div>
 
         </div>

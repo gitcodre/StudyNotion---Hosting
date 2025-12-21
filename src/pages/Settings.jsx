@@ -113,7 +113,7 @@ const Settings = () => {
   return (
     <div className='w-full'>
       {/* Navigate Back */}
-      <div>
+      <div className='md:ml-[5rem]'>
         <button onClick={() => navigate(-1)}
           className='flex items-center mt-5 gap-x-1 text-richblack-300'  
         >
@@ -124,25 +124,25 @@ const Settings = () => {
       </div>
 
       {/* Form Settings */}
-      <div className='w-6/11 ml-20 '>
+      <div className='lg:w-6/11 md:w-full md:ml-20 '>
 
         {/* Profile Picture */}
-        <div className=' w-[70%] bg-richblack-800 p-6 mt-10 rounded-md flex gap-x-4 items-center'>
+        <div className='md:w-[70%] w-[90%] bg-richblack-800 p-6 mt-10 rounded-md flex gap-x-4 items-center'>
           <ProfilePicture user={user}/>
         </div>
         
 
         {/* Profile Information */}
-        <div className='w-[70%] bg-richblack-800 p-6 mt-10 rounded-md '>
+        <div className='md:w-[70%] w-[90%] bg-richblack-800 md:p-6 py-6 px-4 mt-10 rounded-md '>
 
           <p className='text-richblack-5'>Profile Information</p>
 
           <form onSubmit={formSubmitHandler}>
             <div className='flex flex-col'>
               {/* Name & Profession */}
-              <div className='mt-5 flex gap-10'>
+              <div className='mt-5 md:flex gap-10'>
 
-                <div className='flex flex-col w-[50%] text-richblack-5'>
+                <div className='flex flex-col md:w-[50%] text-richblack-5'>
                   <label htmlFor='name'>Display Name</label>
                   <input 
                     className='bg-richblack-700 text-richblack-200 mt-2 mb-4 w-full p-2 rounded-md outline-none'
@@ -158,7 +158,7 @@ const Settings = () => {
                   />
                 </div>
 
-                <div className='flex flex-col w-[50%] text-richblack-5'>
+                <div className='flex flex-col md:w-[50%] text-richblack-5'>
                   <label htmlFor='name'>Profession</label>
                   <input 
                     className='bg-richblack-700 text-richblack-200 mt-2 mb-4 w-full p-2 rounded-md outline-none'
@@ -181,9 +181,9 @@ const Settings = () => {
               </p>
               
               {/* DOB & Gender */}
-              <div className='mt-5 flex gap-10'>
+              <div className='mt-5 md:flex md:gap-10 gap-x-2'>
                 {/* DOB */}
-                <div className='flex flex-col w-[50%] text-richblack-5'>
+                <div className='flex flex-col md:w-[50%] w-full text-richblack-5'>
                   <label htmlFor='dob'>Date of Birth</label>
                   <input 
                     className='bg-richblack-700 mt-2 mb-4 w-full p-3 rounded-md outline-none text-richblack-200'
@@ -198,14 +198,14 @@ const Settings = () => {
                 </div>
 
                 {/* Gender */}
-                <div className='flex flex-col gap-x-3 w-[50%] text-richblack-5'>
+                <div className='md:flex flex-col gap-x-3 md:w-[50%] text-richblack-5'>
                   <label htmlFor='gender'>
                     Gender <sup className="text-pink-200">*</sup>
                   </label>
 
-                  <div className='flex justify-between bg-richblack-700 text-richblack-200 mt-2 mb-4 w-full p-3 rounded-md outline-none'>
+                  <div className='flex justify-between bg-richblack-700 text-richblack-200 mt-2 mb-4 w-full md:p-3 py-2 rounded-md outline-none'>
 
-                    <label className="flex items-center pl-2 gap-2 cursor-pointer">
+                    <label className="flex items-center md:mr-0 mr-2 pl-2 md:gap-2 gap-1 cursor-pointer">
                       <input
                         className='w-[15px] h-[15px]'
                         type='radio'
@@ -220,7 +220,7 @@ const Settings = () => {
                       <span className='text-[1.1rem] '>Male</span>
                     </label>
                     
-                    <label className="flex items-center gap-2 cursor-pointer">
+                    <label className="flex items-center md:mr-0 mr-2 gap-2 cursor-pointer">
                       <input
                         className='w-[15px] h-[15px]'
                         type='radio'
@@ -236,7 +236,7 @@ const Settings = () => {
                     </label>
 
 
-                    <label className="flex items-center gap-2 cursor-pointer">
+                    <label className="flex items-center md:mr-0 mr-6 gap-2 cursor-pointer">
                       <input
                         className='w-[15px] h-[15px]'
                         type='radio'
@@ -255,20 +255,19 @@ const Settings = () => {
 
                 </div>
                 
-
               </div>
 
               {/* Phone no & About*/}
-              <div className='mt-5 flex gap-10'>
+              <div className='mt-5 md:flex gap-10'>
 
                 {/* Phone no */}
-                <div className='text-richblack-5 w-[50%]'>
+                <div className='text-richblack-5 md:w-[50%]'>
                   <label htmlFor='Phonenum'>Phone Number</label>
                   <br/>
                   <div className='flex gap-x-4'>
 
                     <select
-                      className='bg-richblack-700 mt-2 mb-4 w-[20%] p-2 rounded-md outline-none text-richblack-200'
+                      className='bg-richblack-700 mt-2 mb-4 md:w-[20%] w-[30%] p-2 rounded-md outline-none text-richblack-200'
                       name='phoneno'
                       id='Phonenum'
                       defaultValue='+91'
@@ -305,7 +304,7 @@ const Settings = () => {
                 </div>
 
                 {/* About */}
-                <div className='flex flex-col w-[50%] text-richblack-5'>
+                <div className='flex flex-col md:w-[50%] text-richblack-5'>
                   <label htmlFor='aboutus'>About</label>
                   <input 
                     className='bg-richblack-700 text-richblack-200 mt-2 mb-4 w-full p-2 rounded-md outline-none'
@@ -321,17 +320,16 @@ const Settings = () => {
                   />
                 </div>
                 
-
               </div>
 
             </div>  
 
-              <div className='flex gap-x-3 mt-5 justify-end'>
+            <div className='flex gap-x-3 mt-5 justify-end'>
                 <GenericBtn text={'Cancel'} onclick={resetHandler} customClasses={'text-richblack-5 border-richblack-300 border-2 p-2 rounded-md'}/>
                 <button type='submit' className='bg-yellow-200 p-2 px-4 border-richblack-5 border-1 rounded-md'>
                   Save
                 </button>
-              </div>
+            </div>
 
           </form>
 
@@ -339,14 +337,14 @@ const Settings = () => {
 
         
         {/* Password */}
-        <div className='w-[70%] bg-richblack-800 p-6 my-10 rounded-md text-richblack-5'>
+        <div className='md:w-[70%] w-[90%] bg-richblack-800 md:p-6 py-6 px-4 my-10 rounded-md text-richblack-5'>
 
           <p className='mb-6 text-xl'>Password</p>
 
           <form onSubmit={passwordChangeHandler}>
-            <div className='flex gap-x-4'>
+            <div className='md:flex gap-x-4'>
 
-                <label className='relative w-[50%]'>
+                <label className='relative md:w-[50%]'>
                   <p>Current Password<sup className="text-pink-200">*</sup></p>
                     <input
                       required
@@ -369,7 +367,7 @@ const Settings = () => {
               
                 </label>
 
-                <label className='relative  w-[50%]'>
+                <label className='relative  md:w-[50%]'>
                   <p>Change Password<sup className="text-pink-200">*</sup></p>
                     <input
                       required
@@ -384,7 +382,7 @@ const Settings = () => {
                       onChange={changeHandler}
                     /> 
               
-                    <span className='absolute top-[2.5rem] -translate-x-8' onClick={() => setNewPassword((prev) => !prev)}>
+                    <span className='absolute md:top-[2.5rem] top-[5.2rem] -translate-x-8' onClick={() => setNewPassword((prev) => !prev)}>
                       {newPassword ? <IoMdEye fontSize={24}/> : 
                         <FaEyeSlash fontSize={24}/>}
                     </span>
@@ -392,6 +390,7 @@ const Settings = () => {
                 </label>
               
             </div>
+
             {/* Button */}
             <div className='flex gap-x-3 mt-5 justify-end'>
                 <GenericBtn text={'Cancel'} onclick={() => resetHandler} customClasses={'text-richblack-5 border-richblack-300 border-2 p-2 rounded-md'}/>
@@ -405,8 +404,8 @@ const Settings = () => {
 
         {/* Delete Account */}
 
-        <div className='bg-pink-900 w-[70%] p-6 my-10 flex gap-x-4 rounded-md text-richblack-5'>
-          <div className='w-10 h-10 rounded-full flex items-center justify-center bg-pink-700'>
+        <div className='bg-pink-900 md:w-[70%] w-[90%] p-6 my-10 md:flex gap-x-4 rounded-md text-richblack-5'>
+          <div className='w-10 h-10 rounded-full flex items-center md:mb-0 mb-5 justify-center bg-pink-700'>
             <RiDeleteBin6Line fontSize={25} color='red'/>
           </div>
 

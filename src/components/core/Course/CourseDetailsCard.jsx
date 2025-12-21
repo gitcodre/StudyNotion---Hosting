@@ -42,12 +42,13 @@ const CourseDetailsCard = ({courseData,handleBuyCourse,setConfirmationModal}) =>
     }
 
   return (
-    <div className='absolute top-10 right-10'>
-        <div className='bg-richblack-600 rounded-md p-3 '>
+    <div className='md:absolute top-10 right-10'>
+
+        <div className='bg-richblack-600 rounded-md p-3'>
 
             <img
                 src={courseData?.thumbnail}
-                className='max-h-[300px] min-h-[180px] w-[400px] rounded-xl'
+                className='lg:max-h-[300px] md:max-h-[250px] min-h-[180px] md:w-[400px] rounded-xl'
             />
             <p className='my-2 font-semibold'>Rs. {courseData?.price}</p>
 

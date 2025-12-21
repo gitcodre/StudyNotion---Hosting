@@ -67,5 +67,5 @@ select:-webkit-autofill {
   transition: background-color 9999s ease-in-out 0s;
 }
 .blackButton {
-  @apply cursor-pointer rounded-md bg-richblack-800 px-[20px] py-[8px] font-semibold text-richblack-5;
+  @apply cursor-pointer rounded-md bg-richblack-800 md:px-[20px] md:py-[8px] py-[4px] font-semibold text-richblack-5;
 }

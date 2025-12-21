@@ -3,15 +3,15 @@ import RenderSteps from './RenderSteps';
 
 const AddCourse = () => {
     return (
-        <div className='text-richblack-5 w-[75%] pt-[4rem] mx-auto pl-10'>
+        <div className='text-richblack-5 w-[75%] pt-[4rem] lg:mx-auto lg:pl-10'>
             <h1 className='text-3xl'>Add Course</h1>
 
-            <div className='flex justify-between gap-10'>
-                <div className='mt-10 w-[60%]'>
+            <div className='md:flex justify-between gap-10'>
+                <div className='mt-10 md:w-[60%] w-[90%] md:mb-0 mb-10'>
                     <RenderSteps/>
                 </div>
 
-                <div className='bg-richblack-800 border border-richblack-700 rounded-md py-6 -mt-6 mr-20 pl-6 w-[35%] h-fit'>
+                <div className='bg-richblack-800 border border-richblack-700 rounded-md py-6 -mt-6 lg:mr-20 md:pl-6 pl-2 lg:w-[35%] md:w-[40%] md:mr-0 mr-6 h-fit'>
                     <h2 className='font-semiblod text-xl mb-3'>⚡Course Upload Tips</h2>
                     <ul className='text-sm list-disc pl-6 flex flex-col gap-2 w-[90%]'>
                         <li>Set the Course Price option or make it free.</li>

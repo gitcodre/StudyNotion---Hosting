@@ -108,7 +108,7 @@ const Upload = ({
                     <span className="font-semibold text-yellow-50">Browse</span> a
                     file
                 </p>
-                <ul className="mt-10 ml-20 flex list-disc justify-between space-x-12 text-center  text-xs text-richblack-200">
+                <ul className="mt-10 md:ml-20 flex list-disc justify-between space-x-12 text-center  text-xs text-richblack-200">
                     <li>Aspect ratio 16:9</li>
                     <li>Recommended size 1024x576</li>
                 </ul>

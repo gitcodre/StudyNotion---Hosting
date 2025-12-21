@@ -14,7 +14,7 @@ const SidebarLinks = ({link,iconName}) => {
     <NavLink to={link?.path} className={`${matchRoute(link.path) ? 
     'bg-yellow-800 border-l-[0.2rem] border-yellow-50 text-yellow-50' : 'bg-richblack-800'} text-richblack-300 p-2`}>
 
-        <div className='pl-2 flex gap-x-2 items-center'>
+        <div className='md:pl-2 flex gap-x-2 items-center md:text-base text-sm'>
             <Icon className='text-lg'/>
             <span>{link.name}</span>
         </div>

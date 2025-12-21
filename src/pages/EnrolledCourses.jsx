@@ -36,7 +36,7 @@ const EnrolledCourses = () => {
                 ) : (
                     <div>
                         <div className='flex flex-col justify-between bg-richblack-700 text-richblack-50 rounded-md'>
-                            <div className='flex bg-richblack-700 p-2 rounded-md'>
+                            <div className='hidden md:flex bg-richblack-700 p-2 rounded-md'>
                                 <p className='w-[45%]'>Course Name</p>
                                 <p className='w-[30%] pl-10 '>Durations</p>
                                 <p className='w-1/5 px-2'>Progress</p>
@@ -45,10 +45,10 @@ const EnrolledCourses = () => {
                             {
                                 enrolledCourse.map((course,index) => {
                                     return (
-                                        <div key={index} className='w-full flex items-center text-richblack-5 bg-richblack-900 pt-2 border border-t-0 border-richblack-500 p-4 cursor-pointer'>
+                                        <div key={index} className='w-full md:flex items-center text-richblack-5 bg-richblack-900 pt-2 md:border md:border-t-0 border-richblack-500 md:p-4 py-4 cursor-pointer'>
 
                                             {/* Course Name */}
-                                            <div className='flex gap-2 w-[45%]'
+                                            <div className='flex gap-x-2 md:w-[45%]'
                                                 onClick={() => {
                                                     navigate(`/view-course/${course?._id}/section/${course?.courseContent?.[0]?._id}/sub-section/${course?.courseContent?.[0]?.subSection?.[0]?._id}`
 );
@@ -56,9 +56,9 @@ const EnrolledCourses = () => {
                                                 }}
                                             >
                                                 <img src={course?.thumbnail} alt="course_img"
-                                                    className="h-14 w-14 rounded-lg object-cover"/>
+                                                    className="md:h-14 md:w-14 w-24 h-24 rounded-lg object-cover"/>
 
-                                                <div>
+                                                <div className='md:mb-0 mb-5'>
                                                     <p>{course?.courseName}</p>
                                                     <p className='text-richblack-300'>
                                                         {course.courseDescription.length > 50
@@ -69,13 +69,13 @@ const EnrolledCourses = () => {
                                             </div>
 
                                             {/* Durations */}
-                                            <div className='w-[30%] pl-10 text-richblack-50'>
+                                            <div className='md:w-[30%] md:mt-0 mt-3 md:pl-10 text-richblack-50'>
                                                 {/* {course?.totalDuration} */}
                                                 2h 30mins
                                             </div>
 
                                             {/* Progress */}
-                                            <div className='flex w-1/5 flex-col gap-2 px-2 py-3'>
+                                            <div className='flex md:w-1/5 flex-col gap-2 px-2 py-3'>
                                                 <p className='text-sm'>Progress : {course.progressPercentage || 0}%</p>
                                                 <ProgressBar 
                                                     completed={course.progressPercentage || 0}

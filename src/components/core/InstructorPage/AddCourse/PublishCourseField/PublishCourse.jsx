@@ -77,7 +77,7 @@ const PublishCourse = () => {
     // Course ka status draft - course bana hai but usko hidden rakhna hai user se
 
 
-    <div className='mt-10 w-[95%] bg-richblack-800 border border-richblack-700 rounded-md pb-10'>
+    <div className='mt-10 md:w-[95%] bg-richblack-800 border border-richblack-700 rounded-md pb-10'>
 
       <p className='p-5 pt-8 text-2xl'>Publish Settings</p>
       <form onSubmit={handleSubmit(onsubmit)}>
@@ -98,12 +98,12 @@ const PublishCourse = () => {
               disabled={loading}
               type="button"
               onClick={() => dispatch(setStep(2))}
-              className="flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[6px] px-[20px] font-semibold text-richblack-900"
+              className="flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[6px] px-[20px] font-semibold text-richblack-900 md:text-base text-sm"
             >
               Back
             </button>
             <GenericBtn disabled={loading} text="Save Changes" 
-              customClasses={'py-[6px] px-[15px] bg-yellow-50 rounded-md text-richblack-900 font-semibold'}
+              customClasses={'py-[6px] px-[15px] bg-yellow-50 rounded-md text-richblack-900 font-semibold md:text-base text-sm'}
             />
         </div>
       </form>

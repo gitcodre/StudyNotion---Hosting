@@ -55,23 +55,23 @@ const ProfilePicture = ({user}) => {
     })
 
   return (
-    <div className='text-richblack-5 w-full flex items-center justify-between'>
-        <div className='flex gap-x-4 items-center'>
+    <div className='text-richblack-5 w-full md:flex items-center justify-between'>
+
+        <div className='md:flex gap-x-4 items-center md:mb-0 mb-5'>
             <img 
                 src={previewSource || user?.image}
                 alt={`profile-${user?.firstName}`}
-                className='w-[78px] aspect-square rounded-full object-cover cursor-pointer'
+                className='w-[78px] md:mx-0 mx-auto md:mb-0 mb-5 aspect-square rounded-full object-cover cursor-pointer'
             />
-            <div>
+            <div className='md:text-start text-center'>
                 <h2>{user?.firstName} {user?.lastName}</h2>
                 <p className='text-richblack-300'>{user?.email}</p>
             </div>
 
         </div>
 
-
         {/* Select / Upload Button */}
-        <div className='flex items-center gap-x-2'>
+        <div className='flex items-center gap-x-2 md:ml-0 ml-[1.5rem]'>
             <input 
                 type='file'
                 className='hidden'

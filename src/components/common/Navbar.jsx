@@ -9,6 +9,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
 import { getCategory } from '../../services/operations/auth_api'
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 const Navbar = () => {
     const {token} = useSelector((state) => state.auth);
@@ -16,6 +18,7 @@ const Navbar = () => {
     const {totalItems} = useSelector((state) => state.cart);
     const location = useLocation();
     const [subLinks,setSubLinks] = useState([]);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const matchRoute = (route) => {
         return matchPath({path:route}, location.pathname);
@@ -36,6 +39,7 @@ const Navbar = () => {
 
     return (
         <div className='w-full h-14 border-b-[1px] border-richblack-600 bg-richblack-800'>
+
         <div className='w-11/12 h-14 mx-auto max-w-maxContent flex justify-between items-center'>
 
             {/* Section 1 */}
@@ -44,7 +48,7 @@ const Navbar = () => {
             </Link>
 
             {/* Section 2 */}
-            <nav>
+            <nav className='hidden md:block'>
                 <ul className='flex gap-x-6 text-richblack-25'>
                 {
                     NavbarLinks.map( (link, index) => (
@@ -89,7 +93,7 @@ const Navbar = () => {
             </nav>
 
             {/* Section 3 Login Signup Dashboard*/}
-            <div className='text-white'>
+            <div className='text-white flex items-center'>
                 <div className='flex gap-x-5 items-center'>
                     {/* For Cart */}
                     <div>
@@ -119,7 +123,7 @@ const Navbar = () => {
 
                 </div>
 
-                <div className='flex gap-5'>
+                <div className='hidden md:flex gap-5 '>
                     {/* For Login */}   
                     {
                         token === null && (
@@ -141,12 +145,77 @@ const Navbar = () => {
                         )
                     }
                 </div>
-
-                
+                <button className='md:hidden' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    <GiHamburgerMenu fontSize={24} fill="#AFB2BF"/>
+                </button>
 
             </div>
 
         </div>
+
+        {isMenuOpen && (
+            <div className='absolute right-4 top-14 z-[1000] w-[200px] rounded-md border border-richblack-700 bg-richblack-800 p-4 shadow-2xl md:hidden'>
+                <ul className='flex flex-col gap-y-3 text-richblack-25'>
+                {
+                    NavbarLinks.map( (link, index) => (
+                        <li key={index}>
+                            {
+                                link.title === "Catalog" ? (
+                                    <div className='relative flex items-center group z-10'>
+                                        <p>{link.title}</p>
+                                        <p><MdOutlineKeyboardArrowLeft/></p>
+
+                                        <div className='invisible absolute -left-[85%] top-[20%] flex flex-col rounded-md bg-richblack-800 p-4 text-richblack-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[300px]'>
+                                            
+                                            <div className=' absolute left-[80%] top-3 translate-x-[80%] translate-y-[-45%] h-6 w-6 rotate-45 rounded bg-richblack-800'></div>
+
+                                            {
+                                                subLinks.length ? (
+                                                        subLinks.map((link,index) => (
+                                                            <Link to={`/catalog/${link.name.split(" ").join('-').toLowerCase()}`} key={index}>
+                                                                <p className='py-3 px-2 rounded-md hover:shadow-lg hover:shadow-richblack-800 hover:bg-richblack-500'>
+                                                                    {link.name}
+                                                                </p>
+                                                            </Link>
+                                                        ))
+                                                ) : (<div></div>) 
+                                            }
+
+                                        </div>
+                                    </div>
+
+                                ) : (
+                                    <Link to={link?.path}>
+                                        <p className={`${ matchRoute(link?.path) ? "text-yellow-25" : "text-richblack-25"}`}>
+                                            {link.title}
+                                        </p>  
+                                    </Link>
+                                )
+                            }
+                        </li> 
+                    ) )
+                }
+                </ul>
+
+                {/* Login / Signup buttons inside dropdown for mobile */}
+                {token === null && (
+                    <div className='flex flex-col gap-y-4 mt-5'>
+                        <Link to='/login' onClick={() => setIsMenuOpen(false)}>
+                            <button className='w-full border border-richblack-600 bg-richblack-700 py-[6px] text-richblack-50 rounded-md'>
+                                Log in
+                            </button>
+                        </Link>
+                        <Link to='/signup' onClick={() => setIsMenuOpen(false)}>
+                            <button className='w-full border border-richblack-600 bg-richblack-700 py-[6px] text-richblack-50 rounded-md'>
+                                Sign up
+                            </button>
+                        </Link>
+                    </div>
+                )}
+
+            </div>
+        )}
+
     </div>
   )
 }

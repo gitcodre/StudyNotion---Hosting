@@ -47,7 +47,7 @@ const NestedView = ({ handleChangeEditSectionName }) => {
     } 
 
   return (
-    <div className='text-richblack-5 pl-5 mt-2 rounded-lg bg-richblack-600 ml-5 mb-10 py-4 w-[93%]'>
+    <div className='text-richblack-5 pl-5 mt-2 rounded-lg bg-richblack-600 md:ml-5 ml-2 mb-10 py-4 md:w-[93%]'>
         <div className='w-full pr-5 '>
             {
                 // Section wala hai 

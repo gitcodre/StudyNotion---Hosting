@@ -8,12 +8,12 @@ const LearningLanguageSection = () => {
   return (
     <div className='flex flex-col gap-2 mt-36'>
       <p className='text-3xl font-semibold text-center'>Your swiss knife for <Spanner text={'learning any language'}/></p>
-      <p className='text-richblack-600 font-medium w-[55%] text-base mx-auto text-center'>Using spin making learning multiple languages easy. with 20+ languages realistic voice-over, progress tracking, custom schedule and more.</p>
+      <p className='text-richblack-600 font-medium md:w-[55%] text-base mx-auto text-center'>Using spin making learning multiple languages easy. with 20+ languages realistic voice-over, progress tracking, custom schedule and more.</p>
 
-      <div className='flex items-center justify-center translate-x-10 '>
-        <img className='object-contain -mr-32' src={knowYourProgress}></img>
-        <img className='object-contain' src={compareWithOthers}></img>
-        <img className='object-contain -ml-36' src={planYourLessons}></img>
+      <div className='flex items-center justify-center lg:translate-x-0 md:-translate-x-4 -translate-x-10'>
+        <img className='object-contain lg:w-[38%] md:w-[36%] w-[55%] md:-mr-36 -mr-24' src={knowYourProgress}></img>
+        <img className='object-contain lg:w-[38%] md:w-[36%] w-[55%] md:-mr-32 -mr-24' src={compareWithOthers}></img>
+        <img className='object-contain lg:w-[38%] md:w-[36%] w-[55%] md:-mr-32 -mr-24' src={planYourLessons}></img>
       </div>
 
       <div className='w-fit mx-auto'>

@@ -16,13 +16,14 @@ const RenderCartCourses = () => {
             {
                 cart.map((course,index) => (
                     <div key={index}>
-                        <div className='flex justify-between mb-4'>
+                        <div className='md:flex justify-between md:mb-4 mb-10'>
                             {/* Left Part */}
-                            <div className='flex gap-x-4'>
+                            <div className='md:flex md:gap-x-4 md:mb-0 mb-5'>
                                 <img src={course?.thumbnail} alt='thumbnailimg'
-                                    className='w-[12rem] rounded-md'
+                                    className='lg:w-[12rem] md:w-[8rem]  aspect-square rounded-md'
                                 />
-                                <div>
+                                {/* Course Description */}
+                                <div className='md:mt-0 mt-5'>
                                     <p>{course?.courseName}</p>
                                     <p className='text-richblack-400'>Instructor : {course?.instructor?.firstName} {course?.instructor?.lastName}</p>                     
                                     <p>Category : {course?.category[0]?.name}</p>
@@ -39,8 +40,9 @@ const RenderCartCourses = () => {
                                         <span>{course?.ratingAndReview?.length} Ratings</span>
                                     </div>
                                 </div>
+
                             </div>
-                            {/* Right Part */}
+                            {/* Right Part Remove Cart*/}
                             <div className='flex flex-col gap-y-4'>
 
                                 <button 

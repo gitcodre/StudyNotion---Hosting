@@ -28,15 +28,15 @@ const MyCourse = () => {
     },[]);
 
   return (
-    <div className='w-10/12 ml-10 max-w-[1080px]'>
+    <div className='lg:w-10/12 md:w-[80%] lg:ml-10 max-w-[1080px]'>
 
-        <div className='flex justify-between pt-10 w-[80%] mx-auto'>
-            <h2 className='text-richblack-5 text-3xl'>My Courses</h2>
+        <div className='flex justify-between pt-10 md:w-[80%] mx-auto'>
+            <h2 className='text-richblack-5 md:text-3xl text-xl'>My Courses</h2>
             <GenericBtn 
                 text={'Add Course'}
                 onclick={() => navigate('/dashboard/add-course')}
                 disabled={loading}
-                customClasses={'font-semibold bg-yellow-50 flex items-center gap-x-2 p-2 px-3 rounded-md text-richblack-900 cursor-pointer hover:scale-95 transition-all duration-300'}
+                customClasses={'font-semibold bg-yellow-50 flex items-center gap-x-2 md:p-2 md:px-3 p-2 md:text-base text-sm rounded-md text-richblack-900 cursor-pointer hover:scale-95 transition-all duration-300'}
             >
                 <FaPlus/>
             </GenericBtn>

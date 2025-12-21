@@ -10,16 +10,16 @@ const MyProfile = () => {
     
     console.log('User Gender : ',user.additionalDetails);
   return (
-    <div className='min-h-screen w-7/12 max-w-maxContent text-richblack-5 flex flex-col mx-auto mt-12'>
+    <div className='min-h-screen md:w-7/12 w-[65%] max-w-maxContent text-richblack-5 flex flex-col mx-auto mt-12'>
         <h2 className='mb-12 text-3xl'>My Profile</h2>
 
-        <div className='bg-richblack-800 border border-transparent rounded-md flex justify-between p-5 py-10 items-center mb-[4rem]'>
+        <div className='bg-richblack-800 border border-transparent rounded-md md:flex justify-between p-5 md:py-10  items-center mb-[4rem]'>
             {/* Left Side */} 
-            <div className='flex gap-x-3 items-center'>
+            <div className='md:flex gap-x-3 items-center'>
                 <img src={user?.image} alt={`user image : ${user?.firstName}`}
                 onClick={() => setShowImage(true)}
-                 className='w-[78px] aspect-square rounded-full object-cover cursor-pointer'/>
-                <div>
+                 className='w-[78px] mx-auto md:mb-0 mb-5 aspect-square rounded-full object-cover cursor-pointer'/>
+                <div className='md:mb-0 mb-5 md:text-start text-center'>
                     <p>
                         {user?.firstName + " " + user?.lastName}
                     </p>
@@ -30,38 +30,38 @@ const MyProfile = () => {
             <GenericBtn 
                 text={'Edit'}
                 onclick={() => {navigate('/dashboard/settings')}}
-                customClasses={'flex gap-2 items-center bg-yellow-50 text-richblack-900 h-[2rem] p-2 rounded-md text-bold '}
+                customClasses={'flex gap-2 items-center bg-yellow-50 text-richblack-900 h-[2rem] p-2 rounded-md text-bold md:mx-0 mx-auto'}
             >
                 <LiaEdit/>
             </GenericBtn>
 
         </div>
 
-        <div className='bg-richblack-800 border border-transparent rounded-md flex justify-between p-5 py-10 items-center mb-[4rem]'>
+        <div className='bg-richblack-800 border border-transparent rounded-md md:flex justify-between p-5 md:py-10 items-center mb-[4rem]'>
             {/* Left Side */}
-            <div className='flex flex-col gap-4 pl-3'>
-                <p className='mb-6'>About</p>
-                <p className='text-richblack-300'>
+            <div className='md:flex flex-col gap-4 pl-3 md:mb-0 mb-[3rem]'>
+                <p className='mb-6 md:text-start text-center'>About</p>
+                <p className='text-richblack-300 md:text-base text-center'>
                     {user?.additionalDetails?.about ?? 'Write Something About Yourself'}
                 </p>
             </div>
             {/* Right Side */}
             <button onClick={() => {navigate('/dashboard/settings')}}
-                className='flex gap-2 items-center bg-yellow-50 text-richblack-900 h-[2rem] p-2 rounded-md text-bold -translate-y-[2rem]'    
+                className='flex gap-2 items-center bg-yellow-50 text-richblack-900 h-[2rem] p-2 rounded-md text-bold -translate-y-[2rem] md:mx-0 mx-auto'    
             >
                 Edit
                 <span><LiaEdit/></span>
             </button>
         </div>
 
-        <div className='bg-richblack-800 border border-transparent rounded-md flex justify-between p-5 py-10 items-center mb-[4rem]'>
+        <div className='bg-richblack-800 border border-transparent rounded-md md:flex justify-between p-5 md:py-10 items-center mb-[4rem]'>
             {/* Left Side */}
             <div className='flex flex-col gap-4 pl-3 pb-4'>
                 <p className='font-bold mb-6'>Personal Details</p>
 
-                <div className='flex gap-28'>
+                <div className='md:flex md:mb-0 mb-[2rem] gap-28'>
                     {/* Left Part */}
-                    <div className='flex flex-col gap-y-6'>
+                    <div className='flex flex-col gap-y-6 md:mb-0 mb-5'>
                         <div className='flex flex-col gap-y-1'>
                             <p className='text-richblack-300'>First Name</p>
                             <p>{user?.firstName}</p>
@@ -97,7 +97,7 @@ const MyProfile = () => {
             </div>
             {/* Right Side */}
             <button onClick={() => {navigate('/dashboard/settings')}}
-                className='flex gap-2 items-center bg-yellow-50 text-richblack-900 h-[2rem] p-2 rounded-md text-bold -translate-y-[8rem]'
+                className='flex gap-2 items-center bg-yellow-50 text-richblack-900 h-[2rem] p-2 rounded-md text-bold md:-translate-y-[8rem] md:ml-0 ml-[0.8rem]'
             >
                 Edit
                 <span><LiaEdit/></span>

@@ -35,7 +35,7 @@ const EditCourseForm = () => {
         return <Spinner/>
     }
   return (
-    <div className='w-5/12 mx-auto mt-10 text-richblack-5'>
+    <div className='lg:w-5/12 md:w-8/12 w-8/12 mx-auto mt-10 text-richblack-5'>
         <button className='mb-2 flex items-center gap-x-2' onClick={() => navigate(-1)}>
             <FaAngleLeft/>
             Back 

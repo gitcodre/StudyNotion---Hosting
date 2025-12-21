@@ -17,7 +17,7 @@ const CourseAccordianBar = ({course,isActive,handleActive}) => {
     }, [active])
 
   return (
-    <div className='mt-10 overflow-hidden border border-solid border-richblack-600 bg-richblack-700 w-[60%] text-richblack-5'>
+    <div className='mt-10 overflow-hidden border border-solid border-richblack-600 bg-richblack-700 lg:w-[60%] md:w-[80%] text-richblack-5'>
         <div>
 
             <div className='flex cursor-pointer items-start justify-between bg-opacity-20 px-7  py-6 transition-[0.3s]'

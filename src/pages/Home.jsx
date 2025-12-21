@@ -15,10 +15,10 @@ import Footer from '../components/common/Footer';
 const Home = () => {
   return (
     <>
-      <div className='flex flex-col  text-white  justify-between items-center w-full h-full'>
+      <div className='flex flex-col text-white justify-between items-center w-full h-full'>
       
         {/* Section 1 */}
-        <div className='w-9/12 mx-auto mt-[6rem] '>
+        <div className='w-full md:w-9/12 mx-auto mt-[6rem] '>
 
           <div className="flex justify-center mb-[3rem]">
             <Link
@@ -35,7 +35,7 @@ const Home = () => {
             <p>Empower Your Future with <Spanner text={'Coding Skills'}></Spanner></p>
           </div>
 
-          <div className='pl-[8rem] pr-[9rem] text-pure-greys-200 mt-3 text-center'>
+          <div className='w-full md:pl-[8rem] md:pr-[9rem] text-pure-greys-200 mt-3 text-center'>
             <p>With our online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands-on projects, quizzes, and personalized feedback from instructors. </p>
           </div>
 
@@ -60,103 +60,104 @@ const Home = () => {
             </video>
           </div>
 
-          {/* Code Section 1 */}
-          <div className='w-[100%]'>
-            <CodeBlocks
-              backgroundGradient={'bg-gradient-ellipse-1'}
-              position={"lg:flex-row"}
-              heading={
-                <div className='text-[4xl] font-semibold'>
-                  Unlock your <Spanner text={'coding potential '}/>
-                  with our online courses.
-                </div>
-              }
-              subheading={
-                <div>
-                  Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you.
-                </div>
-              }
-              ctabtn1={
-                {
-                  text: 'Try it Yourself',
-                  linkto: '/signup',
-                  active:true,
+            {/* Code Section 1 */}
+          <div className='w-full lg:p-0 pl-14'>
+              <CodeBlocks
+                backgroundGradient={'bg-gradient-ellipse-1'}
+                position={"lg:flex-row flex-col "}
+                heading={
+                  <div className='lg:w-full lg:text-[4xl] text-[2xl] w-[300px] font-semibold'>
+                    Unlock your <Spanner text={'coding potential '}/>
+                    with our online courses.
+                  </div>
                 }
-              }
-              ctabtn2={
-                {
-                  text: 'Learn More',
-                  linkto: '/login',
-                  active:false,
+                subheading={
+                  <div className='lg:w-full w-[300px]'>
+                    Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you.
+                  </div>
                 }
-              }
-              codeblock={
-                `<!DOCTYPE html> 
-                <html>  
-                head><title>Example</  
-                title><linkrel="stylesheet"href="styles.css">  
-                /head> 
-                body>  
-                h1><ahref="/">Header</a> 
-                /h1>                  
-                nav><ahref="one/">One</a><ahref="two/">Two</ 
-                a><ahref="three/">Three</a> 
-                /nav>`
-              }
-              codeColor={'text-yellow-25'}
-            />
+                ctabtn1={
+                  {
+                    text: 'Try it Yourself',
+                    linkto: '/signup',
+                    active:true,
+                  }
+                }
+                ctabtn2={
+                  {
+                    text: 'Learn More',
+                    linkto: '/login',
+                    active:false,
+                  }
+                }
+                codeblock={
+                  `<!DOCTYPE html> 
+                  <html>  
+                  head><title>Example</  
+                  title><linkrel="stylesheet"href="styles.css">  
+                  /head> 
+                  body>  
+                  h1><ahref="/">Header</a> 
+                  /h1>                  
+                  nav><ahref="one/">One</a><ahref="two/">Two</ 
+                  a><ahref="three/">Three</a> 
+                  /nav>`
+                }
+                codeColor={'text-yellow-25'}
+              />
           </div>
 
           {/* Code Section 2 */}
-          <div className='w-[100%]'>
-            <CodeBlocks 
-              backgroundGradient={'bg-gradient-ellipse-2'}
-              position={"lg:flex-row-reverse"}
-              heading={
-                <div className='text-[4xl] font-semibold'>
-                  Start <Spanner text={'coding in seconds'}/>
-                </div>
-              }
-              subheading={
-                <div>
-                  Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson.
-                </div>
-              }
-              ctabtn1={
-                {
-                  text: 'Continue Lesson',
-                  linkto: '/signup',
-                  active:true,
+          <div className='lg:w-[100%] w-11/12 lg:p-0 pl-14'>
+              <CodeBlocks 
+                backgroundGradient={'bg-gradient-ellipse-2'}
+                position={"lg:flex-row-reverse flex-col"}
+                heading={
+                  <div className='lg:w-full lg:text-[4xl] text-[2xl] w-[200px] font-semibold'>
+                    Start <Spanner text={'coding in seconds'}/>
+                  </div>
                 }
-              }
-              ctabtn2={
-                {
-                  text: 'Learn More',
-                  linkto: '/login',
-                  active:false,
+                subheading={
+                  <div className='lg:w-full w-[300px]'>
+                    Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson.
+                  </div>
                 }
-              }
-              codeblock={
-                `<!DOCTYPE html> 
-                <html>  
-                head><title>Example</  
-                title><linkrel="stylesheet"href="styles.css">  
-                /head> 
-                body>  
-                h1><ahref="/">Header</a> 
-                /h1>                  
-                nav><ahref="one/">One</a><ahref="two/">Two</ 
-                a><ahref="three/">Three</a> 
-                /nav>`
-              }
-              codeColor={'text-yellow-25'}
-            />
-          </div>  
+                ctabtn1={
+                  {
+                    text: 'Continue Lesson',
+                    linkto: '/signup',
+                    active:true,
+                  }
+                }
+                ctabtn2={
+                  {
+                    text: 'Learn More',
+                    linkto: '/login',
+                    active:false,
+                  }
+                }
+                codeblock={
+                  `<!DOCTYPE html> 
+                  <html>  
+                  head><title>Example</  
+                  title><linkrel="stylesheet"href="styles.css">  
+                  /head> 
+                  body>  
+                  h1><ahref="/">Header</a> 
+                  /h1>                  
+                  nav><ahref="one/">One</a><ahref="two/">Two</ 
+                  a><ahref="three/">Three</a> 
+                  /nav>`
+                }
+                codeColor={'text-yellow-25'}
+              />
+          </div> 
 
           {/* Tags Section */}
           <HomeExplore/>
 
         </div>
+
 
         {/* Section 2 */}
         <div className='bg-pure-greys-5 text-richblack-700'>
@@ -182,19 +183,18 @@ const Home = () => {
 
           </div>
           
-          {/* Remember Margin Lagaya hai extra last mei remove it */}
           <div className='mb-20 w-11/12 max-w-maxContent mx-auto flex flex-col'>
 
-            <div className='flex gap-5 pt-[5rem]'>
+            <div className='md:flex md:gap-5 pt-[5rem]'>
 
               {/* Left Section */}
-              <div className='w-[50%]'>
+              <div className='md:w-[50%] w-full'>
                 <p className='text-4xl font-bold'>
                   Get the skills you need for a <Spanner text={'job that is in demand.'}/>
                 </p>
               </div>
               {/* Right Section */}
-              <div className='w-[50%]'>
+              <div className='md:w-[50%] w-full'>
                 <div className='flex flex-col gap-12 items-start'>
                   <p className='pr-14 font-medium'>The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.</p>
   

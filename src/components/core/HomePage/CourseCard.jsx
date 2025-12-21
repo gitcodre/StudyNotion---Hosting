@@ -7,9 +7,9 @@ const CourseCard = ({cardData,currentCard,setCurrentCard}) => {
   return (
     <div
     onClick={() => setCurrentCard(cardData.heading)}
-    className={`w-[70%] ${(isActive)? 
+    className={`md:w-[70%] w-[90%] mx-auto ${(isActive)? 
     'bg-white text-richblack-900 shadow-[10px_10px_0px_0px_#FFD60A]' : 
-    'bg-richblack-800 text-richblack-5 '} cursor-pointer pt-8 flex flex-col 
+    'bg-richblack-800 text-richblack-5 '} cursor-pointer lg:pt-8 md:pt-4 pt-2 lg:translate-x-0 md:-translate-x-10 flex flex-col md:mb-0 mb-10 
     justify-between hover:scale-105 transition-all duration-200`}>
 
 
@@ -18,7 +18,7 @@ const CourseCard = ({cardData,currentCard,setCurrentCard}) => {
         <p className='w-[90%] pl-8 text-richblack-500 '>{cardData.description}</p>
       </div>
       
-      <div className='pt-20'>
+      <div className='lg:pt-20 '>
         <div className="w-full border-t-2 border-dashed border-pure-greys-100 opacity-50 mx-auto mt-6 mb-3"></div>
 
         <div className={`flex pb-4 justify-between items-center ${(isActive)? 

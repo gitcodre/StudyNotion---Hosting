@@ -41,13 +41,13 @@ const HomeExplore = () => {
  
     }
     return (
-    <div className='relative w-full flex flex-col items-center mt-[10rem]'>
+    <div className='relative md:w-full w-11/12 mx-auto lg:flex lg:flex-col lg:items-center mt-[10rem] '>
 
-        <h2 className='font-bold text-4xl'>Unlock the <Spanner text={'Power of Code'} /></h2>
-        <p className='text-richblack-50 pt-2 pb-5'>Learn to Build Anything You Can Imagine</p>
+        <h2 className='text-center font-bold text-4xl'>Unlock the <Spanner text={'Power of Code'} /></h2>
+        <p className='text-center text-richblack-50 lg:pt-2 pt-5 pb-5'>Learn to Build Anything You Can Imagine</p>
         
         {/* Tabs Ayyenge */}
-        <div className='flex w-[60%] justify-between items-center  bg-richblack-800 border-richblack-100  rounded-full p-2 px-6'>
+        <div className='md:flex lg:w-[60%] md:w-full md:justify-between md:items-center  md:bg-richblack-800 border-richblack-100 md:rounded-full p-2 md:px-6 px-1 bg-richblack-800 rounded-md '>
         {
 
             tabName.map((tab,index) => {
@@ -64,8 +64,8 @@ const HomeExplore = () => {
         }
         </div>
 
-        <div className='lg:h-[290px]'></div>
-        <div className='absolute translate-y-44 pt-8 pb-28 flex gap-10 justify-between'>
+        <div className='lg:h-[290px] md:h-[300px] h-[700px] '></div>
+        <div className='absolute lg:translate-y-44 md:-translate-y-[13rem] lg:pt-8 lg:pb-28 md:flex md:gap-10 md:justify-between -translate-y-[40rem] '>
             {
                 courses.map((course,index) => {
                     return (

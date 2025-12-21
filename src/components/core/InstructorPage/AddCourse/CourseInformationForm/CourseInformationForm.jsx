@@ -219,7 +219,7 @@ const CourseInformationForm = () => {
         }
     }
   return (
-    <div className='mt-10 p-5 w-full border border-richblack-700 bg-richblack-800 rounded-md'>
+    <div className='mt-10 md:p-5 py-5 px-2 w-full border border-richblack-700 bg-richblack-800 rounded-md'>
        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-5'>
             {/* Course Title */}
             <div className='flex flex-col gap-2'>
@@ -368,7 +368,7 @@ const CourseInformationForm = () => {
                 {
                     editCourse && (
                         <button
-                            className='bg-richblack-300 w-fit p-1 rounded-md px-3 text-richblack-900 font-bold'
+                            className='md:text-base text-sm bg-richblack-300 w-fit p-1 rounded-md px-3 text-richblack-900 font-bold'
                             onClick={() => dispatch(setStep(2))}
                         >
                             Continue Without Saving
@@ -378,7 +378,7 @@ const CourseInformationForm = () => {
             {/* Save Changes jb edit krna ho form ko tbhi use karna hoga mtlb yani agar details update ki hongi form mei to uss course ko update kro aur wo checking ki form update hui ya nahi wo isFormUpdated dekhega  */}
                 <GenericBtn 
                     text={!editCourse ? "Next" : "Save Changes"}
-                    customClasses={'bg-yellow-50 text-richblack-900 py-1 px-4 rounded-md'}
+                    customClasses={'bg-yellow-50 text-richblack-900 py-1 px-4 rounded-md md:text-base text-sm'}
                 />
             </div>
 

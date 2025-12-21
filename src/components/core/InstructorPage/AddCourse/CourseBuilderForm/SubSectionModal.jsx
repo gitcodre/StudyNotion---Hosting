@@ -138,7 +138,7 @@ const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false
   return (
       <div className="fixed inset-0 z-50 flex justify-center items-center pointer-events-none">
         <div className="absolute inset-0 bg-black bg-opacity-60 z-40 pointer-events-none"></div>
-        <div className="bg-richblack-800 w-[600px] rounded-md relative z-50 pointer-events-auto">
+        <div className="bg-richblack-800 md:w-[600px] rounded-md relative z-50 pointer-events-auto">
 
 
           <div className='mb-5 flex justify-between bg-richblack-700 py-3 px-5 '>

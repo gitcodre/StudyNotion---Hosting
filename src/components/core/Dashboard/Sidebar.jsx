@@ -18,7 +18,7 @@ const Sidebar = () => {
         return(<Spinner/>);
     }
   return (
-    <div className='bg-richblack-800 text-richblack-5 w-[15%] min-h-screen flex flex-col border-r-[1px] border-r-richblack-700 py-10 '>
+    <div className='bg-richblack-800 text-richblack-5 md:w-[15%] w-[25%] min-h-screen flex flex-col border-r-[1px] border-r-richblack-700 py-10 '>
         {
             sidebarLinks.map((link) => {
                if(link.type && link.type !== user.accountType) return null;
@@ -41,7 +41,7 @@ const Sidebar = () => {
 
             {/* Logout */}
             <button
-                className='pl-4 mt-2 text-richblack-300'
+                className='md:pl-4 pl-2 mt-2 text-richblack-300'
                 onClick={() => {setConfirmationModal({
                     text1:'Are you sure?',
                     text2:'You will be logged out of your account',

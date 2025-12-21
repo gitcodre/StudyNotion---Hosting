@@ -35,7 +35,7 @@ const ViewCourse = () => {
   return (
     <div>
         <div className='flex '>
-            <div className='w-[20%] bg-richblack-800 min-h-screen '>
+            <div className='md:w-[20%] bg-richblack-800 min-h-screen '>
                 <ViewCourseSidebar setCreateReviewModal={setCreateReviewModal} markedLectures={markedLectures} setMarkedLectures={setMarkedLectures}/>
             </div>
 

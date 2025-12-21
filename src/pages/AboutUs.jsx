@@ -18,18 +18,18 @@ const AboutUs = () => {
         <section className='relative bg-richblack-800'>
 
             {/* Section 1 */}
-            <section className=' w-11/12 max-w-max-content mx-auto flex flex-col justify-center items-center pb-52'>
+            <section className='w-11/12 max-w-max-content mx-auto flex flex-col justify-center items-center pb-52'>
                 <p className='mt-16 mb-6 text-richblack-200'>About us</p>
-                <h2 className='text-center text-3xl w-[45%]'>Driving Innovation in Online Education for a 
+                <h2 className='text-center text-3xl md:w-[45%] w-full'>Driving Innovation in Online Education for a 
                     <Spanner text={' Brighter Future'}/>
                 </h2>
 
-                <p className='text-center w-[55%] text-richblack-300 pt-4 pb-6'>Studynotion is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.</p>
+                <p className='text-center md:w-[55%] w-full text-richblack-300 pt-4 md:pb-6 md:mb-0 -mb-[15rem]'>Studynotion is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.</p>
 
-                <div className='flex gap-5 absolute bottom-[23rem]'>
-                    <img src={aboutus1} alt='aboutus1Img'></img>
-                    <img src={aboutus2} alt='aboutus2Img'></img>
-                    <img src={aboutus3} alt='aboutus3Img'></img>
+                <div className='flex flex-col md:flex-row gap-5 md:absolute lg:bottom-[40rem] md:bottom-[30rem]md:translate-y-0 translate-y-[20rem]'>
+                    <img src={aboutus1} alt='aboutus1Img' className="md:w-[280px] lg:w-auto w-full"></img>
+                    <img src={aboutus2} alt='aboutus2Img' className="md:w-[280px] lg:w-auto w-full"></img>
+                    <img src={aboutus3} alt='aboutus3Img' className="md:w-[280px] lg:w-auto w-full"></img>
                 </div>
             </section>
 
@@ -48,10 +48,10 @@ const AboutUs = () => {
         <section>
             <div className='w-11/12 max-w-maxContent mx-auto flex flex-col gap-20 pb-20'>
                 {/* Top */}
-                <div className='flex gap-10'>
+                <div className='md:flex gap-10'>
 
                     {/* Left Side */}
-                    <div className='flex flex-col gap-3 w-[50%] pl-[4rem]'>
+                    <div className='flex flex-col gap-3 md:w-[50%] md:pl-[4rem]'>
                         <h2 className='text-3xl bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text text-transparent '>Our Founding Story</h2>
                         <p className='text-richblack-300 w-[80%]'>
                             Our e-learning platform was born out of a shared vision and passion for transforming education. It all began with a group of educators, technologists, and lifelong learners who recognized the need for accessible, flexible, and high-quality learning opportunities in a rapidly evolving digital world.
@@ -68,19 +68,19 @@ const AboutUs = () => {
                 </div>
 
                 {/* Bottom */}
-                <div className='flex gap-14'>
+                <div className='md:flex gap-14'>
                     {/* Left Side */}
-                    <div className='flex flex-col gap-5 w-[50%] pl-[4rem]'>
+                    <div className='flex flex-col gap-5 md:w-[50%] md:pl-[4rem] md:mb-0 mb-[2rem]'>
 
                         <h2 className='text-3xl bg-gradient-to-r from-[#E65C00] to-[#F9D423] bg-clip-text text-transparent'>Our Vision</h2>
 
-                        <p className='text-richblack-300 w-[80%]'>
+                        <p className='text-richblack-300 md:w-[80%]'>
                             With this vision in mind, we set out on a journey to create an e-learning platform that would revolutionize the way people learn. Our team of dedicated experts worked tirelessly to develop a robust and intuitive platform that combines cutting-edge technology with engaging content, fostering a dynamic and interactive learning experience.
                         </p>
 
                     </div>
                     {/* Right Side */}
-                    <div className='flex flex-col gap-5 w-[50%]'>
+                    <div className='flex flex-col gap-5 md:w-[50%] '>
 
                         <h2 className='text-3xl bg-gradient-to-r from-[#1FA2FF]
                         via-[#12D8FA] to-[#A6FFCB] bg-clip-text text-transparent'>

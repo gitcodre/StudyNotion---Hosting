@@ -67,26 +67,26 @@ const ViewCourseSidebar = ({setCreateReviewModal,markedLectures,setMarkedLecture
     <div className='text-richblack-5 mt-10 w-full'>
 
         {/* For Back and review Button */}
-        <div className='w-full flex justify-between items-center'>
+        <div className='w-full flex justify-between items-center md:pr-0 pr-2'>
 
-            <div className='bg-richblack-300 w-[30px] h-[30px] text-black rounded-full ml-4 flex justify-center items-center cursor-pointer'
+            <div className='bg-richblack-300 w-[30px] h-[30px] md:mt-0 mt-2 text-black rounded-full ml-2 flex justify-center items-center cursor-pointer'
                 onClick={() => navigate(-1)}
             >
                 <MdKeyboardArrowLeft fontSize={30}/>
             </div>
 
-            <button onClick={() => setCreateReviewModal(true)} className='bg-yellow-100 p-2 rounded-md px-3 text-black mr-6 font-semibold'>Add Review</button>
+            <button onClick={() => setCreateReviewModal(true)} className='bg-yellow-100 md:mt-0 mt-3 md:ml-0 ml-2 md:p-2 p-1 px-2 rounded-md md:px-3 text-black md:mr-6 font-semibold'>Add Review</button>
 
         </div>
         
         {/* For Heading and completedLecture part */}
-        <div className='ml-5 mt-5'>
-            <p className='text-xl mb-1'>{courseEntireData?.courseName}</p>
+        <div className='md:ml-5 ml-2 mt-5'>
+            <p className='md:text-xl mb-1'>{courseEntireData?.courseName}</p>
             <p className='text-richblack-300 font-semibold'>{markedLectures?.length} / {totalNoOfLectures}</p>
         </div>
 
         {/* For Underline Part */}
-        <div className='w-[85%] mt-5 border-b border-richblack-400 ml-5'></div>
+        <div className='md:w-[85%] mt-5 border-b border-richblack-400 md:ml-5 ml-2'></div>
 
         {/* For Section and SubSections */}
         <div>
@@ -96,7 +96,7 @@ const ViewCourseSidebar = ({setCreateReviewModal,markedLectures,setMarkedLecture
                     <div key={index} onClick={() => setActiveStatus(section._id)} >
 
                         {/* Section Data */}
-                        <div className='bg-richblack-600 w-full text-sm flex flex-col mt-2 p-3'>
+                        <div className='bg-richblack-600 w-full text-sm flex flex-col mt-2 md:p-3 py-2'>
                             <div className='w-[92%] mx-auto flex justify-between items-center'>
                                 <p>{section?.sectionName}</p>
                                 <i
@@ -127,7 +127,7 @@ const ViewCourseSidebar = ({setCreateReviewModal,markedLectures,setMarkedLecture
                                                 
                                                 >
 
-                                                    <div className='w-[90%] p-2 flex items-center gap-x-2 mx-auto'>
+                                                    <div className='w-[90%] md:p-2 py-2 flex items-center gap-x-2 mx-auto'>
                                                         <input 
                                                             type='checkbox'
                                                             checked={markedLectures?.includes(subSec?._id)}

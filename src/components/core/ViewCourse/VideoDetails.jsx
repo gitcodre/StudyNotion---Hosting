@@ -179,7 +179,7 @@ const VideoDetails = () => {
   }
 
   return (
-    <div className="flex flex-col gap-5 text-white">
+    <div className="flex flex-col md:gap-5 gap-3 text-white">
       {!videoData ? (
         <img
           src={previewSource}
@@ -210,7 +210,7 @@ const VideoDetails = () => {
                   disabled={loading}
                   onclick={() => handleLectureCompletion()}
                   text={!loading ? "Mark As Completed" : "Loading..."}
-                  customClasses="text-xl max-w-max px-4 mx-auto bg-yellow-50 p-2 px-3 rounded-md text-black hover:scale-105 transition-all duration-200"
+                  customClasses="text-sm md:text-xl max-w-max md:px-4 mx-auto bg-yellow-50 md:p-2 p-1 px-2 rounded-md text-black hover:scale-105 transition-all duration-200"
                 />
               )}
 
@@ -226,10 +226,10 @@ const VideoDetails = () => {
                   }
                 }}
                 text="Rewatch"
-                customClasses="text-xl max-w-max px-4 mx-auto mt-2 bg-yellow-50 p-2 px-3 rounded-md text-black hover:scale-105 transition-all duration-200"
+                customClasses="text-sm md:text-xl max-w-max md:px-4 mx-auto mt-2 bg-yellow-50 md:p-2 p-1 px-2 rounded-md text-black hover:scale-105 transition-all duration-200"
               />
               {/* Prev/Next Button */}
-              <div className="mt-10 flex min-w-[250px] justify-center gap-x-4 text-xl">
+              <div className="mt-10 flex md:min-w-[250px] justify-center gap-x-4 md:text-xl text-sm">
                 {!isFirstVideo() && (
                   <button
                     disabled={loading}
@@ -254,7 +254,7 @@ const VideoDetails = () => {
         </Player>
       )}
 
-      <h1 className="ml-2 mt-4 text-3xl font-semibold">{videoData?.title}</h1>
+      <h1 className="ml-2 mt-4 md:text-3xl text-xl font-semibold">{videoData?.title}</h1>
       <p className="ml-2 pb-6">{videoData?.description}</p>
     </div>
   )

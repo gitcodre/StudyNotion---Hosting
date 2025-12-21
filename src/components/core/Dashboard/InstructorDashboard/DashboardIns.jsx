@@ -35,7 +35,7 @@ const DashboardIns = () => {
     const totalStudentEnrolled = InstructorData?.reduce((acc,curr) => acc + curr.totalStudentEnrolled , 0);
 
   return (
-    <div className='text-richblack-5 w-8/12 mx-auto pb-20'>
+    <div className='text-richblack-5 lg:w-8/12 mx-auto pb-20 lg:mr-auto md:mr-[2rem]'>
         <div className='mt-10'>
             <p className='text-2xl'>Hi {user?.firstName} 👋</p>
             <p className='text-richblack-300 mt-2'>Let's start something new</p>
@@ -45,7 +45,7 @@ const DashboardIns = () => {
             loading ? <Spinner/> : courses.length ? (
                 <div>
                     {/* Stats Wala Diagram */}
-                   <div className="my-4 flex h-[450px] space-x-4">
+                   <div className="my-4 md:flex h-[450px] md:space-x-4">
                         {/* Render chart / graph */}
                         {totalAmount > 0 || totalStudentEnrolled > 0 ? 
                         (
@@ -61,51 +61,44 @@ const DashboardIns = () => {
                         )}
 
                         {/* Total Statistics */}
-                        <div className="flex min-w-[250px] flex-col rounded-md bg-richblack-800 p-6">
+                        <div className="flex md:min-w-[250px] md:w-fit w-[95%] flex-col rounded-md bg-richblack-800 p-6 md:my-0 my-[2rem]">
                             <p className="text-lg font-bold text-richblack-5">Statistics</p>
                             <div className="mt-4 space-y-4">
                                 <div>
-                                <p className="text-lg text-richblack-200">Total Courses</p>
-                                <p className="text-3xl font-semibold text-richblack-50">
-                                    {courses.length}
-                                </p>
+                                    <p className="text-lg text-richblack-200">Total Courses</p>
+                                    <p className="md:text-3xl text-xl font-semibold text-richblack-50">{courses.length}</p>
                                 </div>
 
                                 <div>
-                                <p className="text-lg text-richblack-200">Total Students</p>
-                                <p className="text-3xl font-semibold text-richblack-50">
-                                    {totalStudentEnrolled}
-                                </p>
+                                    <p className="text-lg text-richblack-200">Total Students</p>
+                                    <p className="md:text-3xl text-xl font-semibold text-richblack-50">{totalStudentEnrolled}</p>
                                 </div>
 
                                 <div>
-                                <p className="text-lg text-richblack-200">Total Income</p>
-                                <p className="text-3xl font-semibold text-richblack-50">
-                                    Rs. {totalAmount}
-                                </p>
+                                    <p className="text-lg text-richblack-200">Total Income</p>
+                                    <p className="md:text-3xl text-xl font-semibold text-richblack-50">Rs. {totalAmount}</p>
                                 </div>
-
                             </div>
                         </div>
 
                     </div>
 
                     {/* Courses Listing */}
-                    <div className='bg-richblack-800 mt-5 rounded-md'>
+                    <div className='bg-richblack-800 md:mt-5 rounded-md mt-[24rem] md:mr-auto mr-4'>
                         {/* Courses heading / View Course */}
-                        <div className='flex justify-between items-center p-5 rounded-md'>
+                        <div className='flex justify-between items-center md:p-5 py-5 px-2 rounded-md'>
                             <p className='font-semibold '>Your Courses</p>
                             <Link to={'/dashboard/my-courses'}>
                                 <p className='text-yellow-50 mr-4'>View All</p>
                             </Link>
                         </div>
                         {/* Courses Actual */}
-                        <div className='flex gap-x-5 pl-5 pb-10'>
+                        <div className='flex flex-col md:flex-row gap-5 md:pl-5 pl-2 lg:pr-auto md:pr-5 pb-10 '>
                             {
                                 courses.slice(0,3).map((courses,index) => (
                                     <div key={index}>
-                                        <img src={courses?.thumbnail} alt='courseThumnailImg' className='rounded-md h-[200px] w-[310px]'/>
-                                        <p className='mt-5'>{courses?.courseName}</p>
+                                        <img src={courses?.thumbnail} alt='courseThumnailImg' className='rounded-md lg:h-[200px] lg:w-[310px] h-[150px] w-[250px]'/>
+                                        <p className='md:mt-5 mt-2'>{courses?.courseName}</p>
                                         <p className='text-richblack-300 text-sm'>
                                             {courses?.studentEnrolled.length} students | Rs. {courses?.price}
                                         </p>
@@ -116,19 +109,21 @@ const DashboardIns = () => {
                     </div>
 
                 </div>
-            ) : (
-            <div className='flex justify-center items-center h-screen -mt-32'>
-                <div className='flex flex-col gap-y-2'>
-                    <p className='text-2xl'>You have not Created a Course</p> 
+            ) : 
+            (
+                <div className='flex justify-center items-center h-screen -mt-32'>
+                    <div className='flex flex-col gap-y-2'>
+                        <p className='text-2xl'>You have not Created a Course</p> 
 
-                    <Link to={'/dashboard/add-course'} className='mx-auto'>
-                        <p className='bg-yellow-50 p-2 px-3 rounded-md text-black animate-pulse w-fit'>
-                            Create a Course
-                        </p>
-                    </Link>
+                        <Link to={'/dashboard/add-course'} className='mx-auto'>
+                            <p className='bg-yellow-50 p-2 px-3 rounded-md text-black animate-pulse w-fit'>
+                                Create a Course
+                            </p>
+                        </Link>
+                    </div>
+
                 </div>
-
-            </div>)
+            )
         }
 
     </div>

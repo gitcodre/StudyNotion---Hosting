@@ -1,12 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { TiTick } from "react-icons/ti";
+import { FaCheck } from "react-icons/fa"
 import CourseInformationForm from './CourseInformationForm/CourseInformationForm';
 import CourseBuilderForm from './CourseBuilderForm/CourseBuilderForm';
 import PublishCourse from './PublishCourseField/PublishCourse';
 const RenderSteps = () => {
     const{step} = useSelector((state) => state.course);
-    const stepsdata = [
+    const steps = [
         {
             id:1,
             title:'Course Information',
@@ -21,66 +21,70 @@ const RenderSteps = () => {
         }
     ] 
   return (
-    <div>
-        <div className='flex justify-between w-[100%] pl-6'>
-            {/* That 1,2,3 wala chiz  */}
-            {
-                stepsdata.map((element,index) => (
-                    <div key={element.id} className='w-full flex items-center relative'>
+    <>
+      <div className="relative mb-2 flex w-full justify-center">
+        {steps.map((item) => (
+          <>
+            <div
+              className="flex flex-col items-center "
+              key={item.id}
+            >
+              <button
+                className={`grid cursor-default aspect-square w-[54px] place-items-center rounded-full border-[1px] ${
+                  step === item.id
+                    ? "border-yellow-50 bg-yellow-900 text-yellow-50"
+                    : "border-richblack-700 bg-richblack-800 text-richblack-300"
+                } ${step > item.id && "bg-yellow-50 text-yellow-50"}} `}
+              >
+                {step > item.id ? (
+                  <FaCheck className="font-bold text-richblack-900" />
+                ) : (
+                  item.id
+                )}
+              </button>
+              
+            </div>
+            {item.id !== steps.length && (
+              <>
+                <div
+                  className={`h-[calc(54px/2)] w-[33%]  border-dashed border-b-2 ${
+                  step > item.id  ? "border-yellow-50" : "border-richblack-500"
+                } `}
+                ></div>
+              </>
+            )}
+          </>
+        ))}
+      </div>
 
-                        {/* Circle and Title */}
-                        <div className='flex flex-col gap-5 items-center'>
-                            {/* Circle */}
-                            <div 
-                                className={`${step === element.id? ('bg-yellow-900 border border-yellow-50 text-yellow-50 px-4') : ('bg-richblack-800 border border-richblack-700 text-richblack-300 px-4')}
-                                ${step > element.id && "bg-yellow-50 rounded-full"}
-                                rounded-full py-2 z-20
-                                `}
-                            >
-                                {
-                                    step > element.id ? 
-                                    (<div className='text-black'> 
-                                        <TiTick fontSize={20} />
-                                    </div>) : (
-                                        <div className='font-semibold'>
-                                            {element.id}
-                                        </div>
-                                    )
-                                }
-                            </div>
-                            {/* Title */}
-                            <div>   
-                                <p className={`${step === element.id ? "text-richblack-5" : "text-richblack-500"}`}>
-                                    {
-                                        element.title
-                                    }
-                                </p>
-                            </div>
-                        </div>
-                        
-                        {/* Dashed Line */}
-                        {
-                            index < stepsdata.length-1 && (
-                                <div
-                                    className={`absolute top-4 left-[5.2rem] w-[70%] h-0 
-                                    border-t-2 border-dashed
-                                    ${step > element.id ? "border-yellow-300" : "border-richblack-500"}
-                                    `}
-                                >
-                                </div>
-                            )
-                        }
-                    </div>
+      <div className="relative mb-16 flex w-full select-none justify-between">
+        {steps.map((item) => (
+          <>
+            <div
+              className="flex md:min-w-[130px] min-w-[80px] flex-col items-center gap-y-2"
+              key={item.id}
+            >
+              
+              <p
+                className={`text-sm ${
+                  step >= item.id ? "text-richblack-5" : "text-richblack-500"
+                }`}
+              >
+                {item.title}
+              </p>
+            </div>
             
-                ))
-            }
-        </div>
+          </>
+        ))}
+      </div>
+      
+      {/* Render specific component based on current step */}
+      {step === 1 && <CourseInformationForm />}
+      {step === 2 && <CourseBuilderForm />}
+      {step === 3 && <PublishCourse />}
 
-        {step === 1 && <CourseInformationForm/>}
-        {step === 2 && <CourseBuilderForm/>}
-        {step === 3 && <PublishCourse/>}
-        
-    </div>
+
+    </>
   )
 }
 

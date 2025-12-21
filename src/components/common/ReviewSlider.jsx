@@ -59,12 +59,29 @@ const ReviewSlider = () => {
   return (
     <div className='text-richblack-5'>
         <Swiper
-            slidesPerView={4}
+            slidesPerView={1}
             loop={reviews.length > 3}
             spaceBetween={25}
             autoplay={{
                 delay: 4000,
                 disableOnInteraction: false,
+            }}
+            breakpoints={{
+                // when window width is >= 480px (Large Mobile / Small Tablet)
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 15
+                },
+                // when window width is >= 768px (Tablet - md)
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                // when window width is >= 1024px (Laptop/Desktop - lg)
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 25
+                }
             }}
             modules={[Autoplay, Pagination]}
             className="mySwiper"
@@ -78,7 +95,7 @@ const ReviewSlider = () => {
                                 <img 
                                     src={review?.user?.image ? review?.user?.image : `https://api.dicebear.com/5.x/initials/svg?seed=${review?.user?.firstName}${review?.user?.lastName}`} 
                                     alt='Profile Pic'
-                                    className='w-12 h-12 rounded-full object-cover'/>
+                                    className='lg:w-12 lg:h-12 md:w-8 md:h-8 w-6 h-6 rounded-full object-cover'/>
                                 <div>
                                     <p>{review?.user?.firstName} {review?.user?.lastName}</p>
                                     <p>{review?.course?.courseName}</p>

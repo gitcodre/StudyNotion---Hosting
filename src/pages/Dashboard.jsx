@@ -13,7 +13,7 @@ const Dashboard = () => {
         return(<Spinner/>);
     }
   return (
-    <div className='flex gap-10 min-h-screen'>
+    <div className='flex md:gap-10 gap-5 min-h-screen'>
         <Sidebar/>
         {/* “Render the child route here.” */}
         <Outlet/>

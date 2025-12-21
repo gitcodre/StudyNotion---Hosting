@@ -108,11 +108,11 @@ const CourseBuilderForm = () => {
   // },[course]);  
 
   return (
-    <div className='m-10 w-[95%] bg-richblack-800 border border-richblack-700 rounded-md pb-10'>
+    <div className='lg:m-10 my-10 md:w-[95%] bg-richblack-800 border border-richblack-700 rounded-md pb-10'>
 
-      <h2 className='p-5 text-2xl'>Course Builder</h2>
+      <h2 className='md:p-5 py-5 px-3 text-2xl'>Course Builder</h2>
       <form onSubmit={handleSubmit(onsubmit)}>
-        <div className='pl-5 pr-5 pb-5 w-full flex flex-col gap-2'>
+        <div className='md:pl-5 pl-2 md:pr-5 pb-5 w-full flex flex-col gap-2'>
           <label htmlFor='section'>Section Name <sup className="text-pink-200">*</sup></label>
           <input 
             type='text'
@@ -136,7 +136,7 @@ const CourseBuilderForm = () => {
             <GenericBtn 
               type={'Submit'}
               text={editSectionName ? "Edit Section Name" : "Create Section"}
-              customClasses={'border flex flex-row-reverse items-center gap-2 border-yellow-50 text-yellow-50 w-fit mt-4 rounded-md p-2 px-3'}
+              customClasses={'border flex flex-row-reverse items-center md:gap-2 gap-1 border-yellow-50 text-yellow-50 w-fit mt-4 rounded-md md:p-2 md:px-3 p-1 px-1'}
             >
               <MdOutlineAddCircleOutline fontSize={23}/>
             </GenericBtn>
@@ -164,9 +164,9 @@ const CourseBuilderForm = () => {
         )
       }
 
-      <div className='flex justify-end pr-5 gap-x-4 '>
+      <div className='flex md:justify-end md:pr-5 md:pl-0 pl-2 md:gap-x-4 gap-x-2'>
         {/* Back Button */}
-        <button className='flex items-center bg-richblack-800 p-2 px-4 rounded-md border border-richblack-300'
+        <button className='flex items-center bg-richblack-800 md:p-2 md:px-4 p-1 px-2 rounded-md border border-richblack-300'
           onClick={backHandler}
         >
           <MdKeyboardArrowLeft/>
@@ -175,7 +175,7 @@ const CourseBuilderForm = () => {
         {/* Next Button */}
         <GenericBtn
           text={'Next'}
-          customClasses={'bg-yellow-50 p-2 px-4 rounded-md flex items-center text-richblack-900'}
+          customClasses={'bg-yellow-50 md:p-2 md:px-4 p-1 px-2 rounded-md flex items-center text-richblack-900'}
           onclick={nextHandler}
 
         >
