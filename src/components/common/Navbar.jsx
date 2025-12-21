@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, matchPath } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import logo from '../../assets/Logo/Logo-Full-Light.png'
@@ -19,6 +19,27 @@ const Navbar = () => {
     const location = useLocation();
     const [subLinks,setSubLinks] = useState([]);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            // If the menu is open and the click is NOT inside the menuRef
+            if (isMenuOpen && menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isMenuOpen]);
+    // Close menu when location changes (navigating to a new page)
+    useEffect(() => {
+        setIsMenuOpen(false);
+    }, [location]);
 
     const matchRoute = (route) => {
         return matchPath({path:route}, location.pathname);
@@ -145,6 +166,7 @@ const Navbar = () => {
                         )
                     }
                 </div>
+
                 <button className='md:hidden' onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     <GiHamburgerMenu fontSize={24} fill="#AFB2BF"/>
                 </button>
@@ -154,7 +176,7 @@ const Navbar = () => {
         </div>
 
         {isMenuOpen && (
-            <div className='absolute right-4 top-14 z-[1000] w-[200px] rounded-md border border-richblack-700 bg-richblack-800 p-4 shadow-2xl md:hidden'>
+            <div ref={menuRef} className='absolute right-4 top-14 z-[1000] w-[200px] rounded-md border border-richblack-700 bg-richblack-800 p-4 shadow-2xl md:hidden'>
                 <ul className='flex flex-col gap-y-3 text-richblack-25'>
                 {
                     NavbarLinks.map( (link, index) => (

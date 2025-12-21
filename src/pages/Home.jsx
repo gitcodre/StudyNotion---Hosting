@@ -64,7 +64,7 @@ const Home = () => {
           <div className='w-full lg:p-0 pl-14'>
               <CodeBlocks
                 backgroundGradient={'bg-gradient-ellipse-1'}
-                position={"lg:flex-row flex-col "}
+                position={"md:flex-row flex-col "}
                 heading={
                   <div className='lg:w-full lg:text-[4xl] text-[2xl] w-[300px] font-semibold'>
                     Unlock your <Spanner text={'coding potential '}/>
@@ -108,10 +108,10 @@ const Home = () => {
           </div>
 
           {/* Code Section 2 */}
-          <div className='lg:w-[100%] w-11/12 lg:p-0 pl-14'>
+          <div className='md:w-[100%] w-11/12 lg:p-0 pl-14'>
               <CodeBlocks 
                 backgroundGradient={'bg-gradient-ellipse-2'}
-                position={"lg:flex-row-reverse flex-col"}
+                position={"md:flex-row-reverse flex-col"}
                 heading={
                   <div className='lg:w-full lg:text-[4xl] text-[2xl] w-[200px] font-semibold'>
                     Start <Spanner text={'coding in seconds'}/>
