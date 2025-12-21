@@ -12,7 +12,7 @@ const Template = ({title,desc1,desc2,image,formType}) => {
     <div className='bg-richblack-900'>
         {
             (loading) ? <Spinner/> :
-            <div className='mt-14 w-11/12 flex flex-col-reverse md:flex-row justify-between max-w-maxContent mx-auto py-12 gap-y-12 md:gap-y-0 md:gap-x-12'>
+            <div className='mt-14 w-11/12 flex flex-col md:flex-row justify-between max-w-maxContent mx-auto py-12 gap-y-12 md:gap-y-0 md:gap-x-12'>
 
                 {/* Left Side */}
                 <div className='w-11/12 max-w-[450px] mx-auto md:mb-0 mb-10'>
