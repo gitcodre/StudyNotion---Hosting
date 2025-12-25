@@ -12,19 +12,22 @@ const MyProfile = () => {
   return (
     <div className='min-h-screen md:w-7/12 w-[65%] max-w-maxContent text-richblack-5 flex flex-col mx-auto mt-12'>
         <h2 className='mb-12 text-3xl'>My Profile</h2>
-
+        {/* Profile */}
         <div className='bg-richblack-800 border border-transparent rounded-md md:flex justify-between p-5 md:py-10  items-center mb-[4rem]'>
             {/* Left Side */} 
             <div className='md:flex gap-x-3 items-center'>
+
                 <img src={user?.image} alt={`user image : ${user?.firstName}`}
                 onClick={() => setShowImage(true)}
-                 className='w-[78px] mx-auto md:mb-0 mb-5 aspect-square rounded-full object-cover cursor-pointer'/>
+                className='w-[78px] mx-auto md:mb-0 mb-5 aspect-square rounded-full object-cover cursor-pointer'/>
+
                 <div className='md:mb-0 mb-5 md:text-start text-center'>
                     <p>
                         {user?.firstName + " " + user?.lastName}
                     </p>
                     <p className='text-richblack-300'>{user?.email}</p>
                 </div>
+
             </div>
             {/* Right Side */}
             <GenericBtn 
@@ -36,12 +39,12 @@ const MyProfile = () => {
             </GenericBtn>
 
         </div>
-
+        {/* About */}
         <div className='bg-richblack-800 border border-transparent rounded-md md:flex justify-between p-5 md:py-10 items-center mb-[4rem]'>
             {/* Left Side */}
             <div className='md:flex flex-col gap-4 pl-3 md:mb-0 mb-[3rem]'>
                 <p className='mb-6 md:text-start text-center'>About</p>
-                <p className='text-richblack-300 md:text-base text-center'>
+                <p className='text-richblack-200 md:text-base text-center'>
                     {user?.additionalDetails?.about ?? 'Write Something About Yourself'}
                 </p>
             </div>
@@ -53,7 +56,7 @@ const MyProfile = () => {
                 <span><LiaEdit/></span>
             </button>
         </div>
-
+        {/* Personal Details */}
         <div className='bg-richblack-800 border border-transparent rounded-md md:flex justify-between p-5 md:py-10 items-center mb-[4rem]'>
             {/* Left Side */}
             <div className='flex flex-col gap-4 pl-3 pb-4'>
@@ -108,9 +111,11 @@ const MyProfile = () => {
         {/* After Cliking Image modal open */}
 
         {showImage && (
+            // Fixed creates a overlay or glass of the document which is mainly used for creating modal and all inset-0 means top bottom left right all 0 and z-1000 tells that overlay will be top of all 
+            // Whatever inside this fixed will behave like a overlay
             <div
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-[1000]"
-            onClick={() => setShowImage(false)}
+                className="fixed inset-0 bg-black/80 flex items-center justify-center z-[1000]"
+                onClick={() => setShowImage(false)}
             >
 
             <div

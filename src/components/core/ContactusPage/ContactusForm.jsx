@@ -46,7 +46,6 @@ const ContactusForm = () => {
                     <input
                         className='bg-richblack-800 mt-2 mb-4 md:w-[15rem] p-2 rounded-md outline-none'
                         type='text'
-                        name='firstname'
                         id='firstname'
                         placeholder='Enter first name'
                         {...register('firstname' , {required:true})}
@@ -64,34 +63,31 @@ const ContactusForm = () => {
                     <label htmlFor='lastname'>Last Name</label>
                     <input
                         className='bg-richblack-800 mt-2 mb-4 p-2 lg:w-[18rem] rounded-md outline-none'
-                        type='text'
-                        name='lastname'    
+                        type='text'   
                         id='lastname'
                         placeholder='Enter Last Name'
                         {...register('lastname')}
-                    />
-                    
+                    /> 
                 </div>
             </div>
 
             {/* Email */}
             <div className='flex flex-col md:px-0 px-[1rem]'>
-                    <label htmlFor='email'>Email Address</label>
-                    <input
-                        className='bg-richblack-800 mt-2 mb-4 w-full p-2 rounded-md outline-none'
+                <label htmlFor='email'>Email Address</label>
+                <input
+                    className='bg-richblack-800 mt-2 mb-4 w-full p-2 rounded-md outline-none'
                         type='email'
-                        name='email'
                         id='email'
                         placeholder='Enter Email'
-                        {...register('email' , {required:true})}
-                    />
-                    {
-                        errors.email && (
-                            <span>
+                    {...register('email' , {required:true})}
+                />
+                {
+                    errors.email && (
+                        <span>
                                 Please Enter your Email address
-                            </span>
-                        )
-                    }
+                        </span>
+                    )
+                }
             </div>
 
             {/* Phone No */}
@@ -101,8 +97,6 @@ const ContactusForm = () => {
                 <div className='flex gap-2'>
                     <select
                         className='bg-richblack-800 mt-2 mb-4 md:w-[15%] w-[25%] p-2 rounded-md outline-none text-richblack-5'
-                        name='Phonenum'
-                        id='Phonenum'
                         defaultValue='+91'
                         {...register('countryCode',{required:true})}
                     >
@@ -113,22 +107,27 @@ const ContactusForm = () => {
                                 </option>
                             ))
                         }
-
                     </select>
-                    {/* Phone no wali nput field */}
+                    {/* Phone no wali input field */}
                     <input
                         type='text'
-                        name='phonenumber'
-                        id='phonenumber'
+                        id='Phonenum'
                         placeholder='12345 67890'
                         maxLength={10}
                         {...register('phoneNo',{
                             required:{value:true , message:'Please Enter Your Phone Number'},
+                            // This is just a validation if it breaches message shows
                             pattern: { value: /^[0-9]{10}$/, message: 'Invalid Phone Number' },
 
                         })}
+                        // This is a restricton that it will not breach 
                         onInput={(e) => {
                             // ✅ restricts user to only digits
+                            // replace(A, B): This function says: "Find everything that matches A and swap it with B."
+                            // ^ (Inside the brackets): When the ^ is inside [], it means "NOT." So, [^0-9] means "anything that is NOT a digit."
+                            // g: This stands for Global. It tells JavaScript to find all non-digits in the string, not just the first one it sees.
+                            // '' (The Empty String): This is what we are replacing the "bad" characters with. Effectively, it deletes them.
+                            // In simple terms: "Find every character that is NOT a number and delete it instantly."
                             e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
                         }}
 
@@ -153,7 +152,6 @@ const ContactusForm = () => {
                 <br/>
                 <textarea
                     className='bg-richblack-800 mt-2 mb-4 w-full p-2 rounded-md outline-none'
-                    name='message'
                     id='message'
                     placeholder='Enter Your message here'
                     rows={6}

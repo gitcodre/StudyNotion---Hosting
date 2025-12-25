@@ -39,7 +39,7 @@ exports.resetPasswordToken = async(req,res) => {
         )
 
         // Create url
-        const url = `http://localhost:3000/update-password/${token}`;
+        const url = `${process.env.FRONTEND_URL}/forgot-password/${token}`;
 
         // Send it through mail
         await mailSender(email,'Password Reset Link',`Password Reset Link url : ${url}`);
@@ -84,6 +84,7 @@ exports.resetPassword = async (req,res) => {
                 message:'Token is invalid',
             })
         }
+        // Date.now - current time & userDetails.resetPasswordExpires - Expiry Time 
         else if(userDetails.resetPasswordExpires < Date.now())
         {
             return res.status(400).json({

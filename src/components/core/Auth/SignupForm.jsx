@@ -24,6 +24,7 @@ const SignupForm = () => {
     password: "",
     confirmPassword: "",
   })
+
   const changeHandler = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -54,6 +55,7 @@ const SignupForm = () => {
     dispatch(setSignUpData(signupData));
     dispatch(sendOtp(formData.email,navigate));
 
+    // Reset back to initial state
     setFormData({
       firstName: "",
       lastName: "",
@@ -83,7 +85,9 @@ const SignupForm = () => {
       <Tab tabData={tabData} field={accountType} setField={setAccountType} />
       {/* Form */}
       <form onSubmit={submitHandler} className='text-richblack-5'>
+          {/* Firstname / Lastname */}
           <div className='flex gap-x-4'>
+            {/* Firstname */}
             <label className='w-[100%]'>
               <p>First Name <sup className="text-pink-200">*</sup></p>
               <input
@@ -99,7 +103,7 @@ const SignupForm = () => {
                 onChange={changeHandler}
               /> 
             </label>
-
+            {/* Lastname */}
             <label className='w-[100%]'>
               <p>Last Name <sup className="text-pink-200">*</sup></p>
               <input
@@ -116,7 +120,8 @@ const SignupForm = () => {
               /> 
             </label>
           </div>
-          
+
+          {/* Email */}
           <label>
               <p>Email Address <sup className="text-pink-200">*</sup></p>
               <input
@@ -132,9 +137,10 @@ const SignupForm = () => {
                 onChange={changeHandler}
               /> 
           </label>
-
+          
+          {/* Create/Confirm Password */}
           <div className='flex gap-x-4'>
-
+            {/* Create Password */}
             <label className='relative'>
               <p>Create Password <sup className="text-pink-200">*</sup></p>
               <input
@@ -157,7 +163,7 @@ const SignupForm = () => {
               </span>
 
             </label>
-
+            {/* Confirm Password */}
             <label className='relative'>
               <p>Confirm Password <sup className="text-pink-200">*</sup></p>
               <input
@@ -179,7 +185,6 @@ const SignupForm = () => {
               </span>
 
             </label>
-
           </div>
 
           <button
@@ -189,6 +194,7 @@ const SignupForm = () => {
           </button>
 
       </form>
+
     </div>
   )
 }

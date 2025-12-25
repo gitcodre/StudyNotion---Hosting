@@ -41,7 +41,7 @@ const ProfilePicture = ({user}) => {
             const formData = new FormData();
             formData.append('displayPicture', imageFile);
             console.log('ImageFile : ',imageFile);
-            await dispatch(updateDisplayPicture(formData));
+            dispatch(updateDisplayPicture(formData));
             setLoading(false);
         }
         catch(err)
@@ -81,6 +81,7 @@ const ProfilePicture = ({user}) => {
             />
             {/* Select Button */}
             <div>
+                {/* Select button dabane se jo input hidden hai wo click ho jaayega yani file ka dialogbox khul jaayega */}
                 <button
                     onClick={handleClick}
                     disabled={loading}

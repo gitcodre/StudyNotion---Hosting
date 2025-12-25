@@ -64,10 +64,10 @@ const CourseInformationForm = () => {
         }
         setLoading(false);
     }
+
     useEffect(() => {
         fetchCategory();    
         // gives id name description
-        console.log('Category : ',category);
         const currentValues = getValues();
         // console.log('Current Category Id : ',currentValues?.courseCategory);
         // console.log('Api Category Id : ',course?.category[0]?._id);
@@ -88,6 +88,7 @@ const CourseInformationForm = () => {
     },[]);   
 
     useEffect(() => {
+        console.log('Category : ',category);
         if(editCourse && category.length > 0) {
             setValue('courseCategory', course.category[0]._id);
         }
@@ -196,6 +197,7 @@ const CourseInformationForm = () => {
             formData.append('courseDescription', data.courseShortDesc);
             formData.append('price', data.coursePrice);
             formData.append('whatYouWillLearn', data.courseBenefits);
+            // Here in Category id will get stored
             formData.append('category', data.courseCategory);
             formData.append('instructions', JSON.stringify(data.courseRequirements));
             formData.append('tag', JSON.stringify(data.courseTags));
@@ -218,6 +220,7 @@ const CourseInformationForm = () => {
             setLoading(false);
         }
     }
+
   return (
     <div className='mt-10 md:p-5 py-5 px-2 w-full border border-richblack-700 bg-richblack-800 rounded-md'>
        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-5'>
@@ -227,7 +230,6 @@ const CourseInformationForm = () => {
                 <input 
                     type='text'
                     id='title'
-                    name='courseTitle'
                     className='bg-richblack-700 rounded-lg p-3'
                     placeholder='Enter Course Title'
                     style={{
@@ -246,7 +248,6 @@ const CourseInformationForm = () => {
                 <textarea 
                     id='desc'
                     rows={5}
-                    name='courseShortDesc'
                     className='bg-richblack-700 rounded-lg p-3'
                     placeholder='Enter Description'
                     style={{
@@ -265,7 +266,6 @@ const CourseInformationForm = () => {
                 <input 
                     type='text'
                     id='paisa'
-                    name='coursePrice'
                     className='bg-richblack-700 rounded-lg p-3 pl-10'
                     placeholder='Enter Price'
                     style={{
@@ -286,7 +286,6 @@ const CourseInformationForm = () => {
                 <label htmlFor='CategoryDetail' className='text'>Category<sup className="text-pink-200">*</sup></label>
                 <select 
                     id='CategoryDetail'
-                    name='courseCategory'
                     className='bg-richblack-700 rounded-lg p-3 '
                     style={{
                         boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
@@ -339,7 +338,6 @@ const CourseInformationForm = () => {
                 <textarea 
                     id='benefits'
                     rows={5}
-                    name='courseBenefits'
                     className='bg-richblack-700 rounded-lg p-3'
                     placeholder='Enter Benefits of the course'
                     style={{

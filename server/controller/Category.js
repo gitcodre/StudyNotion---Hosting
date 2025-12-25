@@ -39,6 +39,8 @@ exports.createCategory = async(req,res) => {
         })
     }
 }
+
+// Navbar wala hai home page pr 
 exports.fetchCategory = async(req,res) => {
     try
     {

@@ -31,7 +31,7 @@ const ForgotPassword = () => {
 
                     <p className='text-richblack-100 my-2 text-sm md:pr-[8rem] pr-[5rem]'>{!emailPresent ? "Have no fear. We’ll email you instructions to reset your password.If you dont have access to your email we can try account recovery" : `We have sent the reset email to ${email}` }
                     </p>
-
+                    
                     <form onSubmit={handleOnSubmit}>
                         {
                             !emailPresent && ( 
@@ -60,7 +60,7 @@ const ForgotPassword = () => {
                         </button>
                     </form>
                     
-
+                    {/* Back to login */}
                     <NavLink to={'/login'}>
                         <div className='flex gap-x-2 items-center'>
                             <FaArrowLeftLong/>

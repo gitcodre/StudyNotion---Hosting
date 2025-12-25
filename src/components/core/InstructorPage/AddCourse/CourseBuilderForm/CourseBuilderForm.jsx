@@ -117,7 +117,6 @@ const CourseBuilderForm = () => {
           <input 
             type='text'
             id='section'
-            name='sectionName'
             className='bg-richblack-700 rounded-lg p-3 w-full '
             placeholder='Add a section to build your course'
             style={{

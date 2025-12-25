@@ -10,20 +10,20 @@ const { convertSecondsToDuration } = require('../util/secToDuration');
 // createCourse handler function
 exports.createCourse = async(req,res) => {
     try
-    {
-        let{courseName,courseDescription,whatYouWillLearn,price,category,tag,status,instructions}
-        = req.body;
+    { 
+      let{courseName,courseDescription,whatYouWillLearn,price,category,tag,status,instructions}
+      = req.body;
 
-        const thumbnail = req.files?.thumbnailImage;
+      const thumbnail = req.files?.thumbnailImage;
 
-        if(!courseName || !courseDescription || !whatYouWillLearn || !price || !category ||!tag || !thumbnail)
-        {
-            return res.status(400).json({
-                success:false,
-                message:'All fields are required',
-            })
-        }
-        if (!status || status === undefined) {
+      if(!courseName || !courseDescription || !whatYouWillLearn || !price || !category ||!tag || !thumbnail)
+      {
+          return res.status(400).json({
+              success:false,
+              message:'All fields are required',
+          })
+      }
+      if (!status || status === undefined) {
 			status = "Draft";
 		}
 
@@ -43,6 +43,7 @@ exports.createCourse = async(req,res) => {
         }
 
         // Check for valid tag  
+        // Selected Category hi aayega jo meine frontend mei options mei select kiya hai 
         const categoryDetails = await Category.findById(category);
         if(!categoryDetails)
         {
@@ -51,6 +52,8 @@ exports.createCourse = async(req,res) => {
                 message:'Category Details not Found',
             })
         }
+
+        console.log('Category Details : ',categoryDetails);
 
         // upload image to cloudinary
         const thumbnailImage = await uploadImageToCloudinary(thumbnail,'Babbar');
@@ -69,6 +72,8 @@ exports.createCourse = async(req,res) => {
             status,
             instructions,
         })
+
+        console.log('New Course : ',newCourse);
 
         // Add new Course to user Schema of instructor
         const updateUserCourse = await User.findByIdAndUpdate(
@@ -260,7 +265,7 @@ exports.editCourse = async (req, res) => {
         },
       })
       .exec()
-
+      console.log('Updated Course : ',updatedCourse);
     
     res.json({
       success: true,

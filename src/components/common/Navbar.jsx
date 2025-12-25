@@ -45,21 +45,23 @@ const Navbar = () => {
         return matchPath({path:route}, location.pathname);
     }
 
+    // Category Data Fetch 
     const fetchSubLinks = async() =>
     {
         const response = await getCategory();
         if(response.length > 0){
             setSubLinks(response);
         }
-        console.log('Response : ',response);
+        // console.log('Response : ',response);
     }
+
     useEffect(() => {
         fetchSubLinks();
     },[] );
     
 
     return (
-        <div className='w-full h-14 border-b-[1px] border-richblack-600 bg-richblack-800'>
+    <div className='w-full h-14 border-b-[1px] border-richblack-600 bg-richblack-800'>
 
         <div className='w-11/12 h-14 mx-auto max-w-maxContent flex justify-between items-center'>
 
@@ -78,9 +80,9 @@ const Navbar = () => {
                                 link.title === "Catalog" ? (
                                     <div className='relative flex items-center group z-10'>
                                         <p>{link.title}</p>
-                                     <p><MdKeyboardArrowDown/></p>
+                                        <p><MdKeyboardArrowDown/></p>
 
-                                        <div className='invisible absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[30%] flex flex-col rounded-md bg-richblack-800 p-4 text-richblack-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[300px]'>
+                                        <div className='invisible absolute left-[50%] top-[30%] translate-x-[-50%] translate-y-[30%] flex flex-col rounded-md bg-richblack-800 p-4 text-richblack-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[300px]'>
                                             
                                             <div className=' absolute left-[50%] top-0 translate-x-[80%] translate-y-[-45%] h-6 w-6 rotate-45 rounded bg-richblack-800'></div>
 
@@ -115,6 +117,8 @@ const Navbar = () => {
 
             {/* Section 3 Login Signup Dashboard*/}
             <div className='text-white flex items-center'>
+
+                {/* Cart/DropDown */}
                 <div className='flex gap-x-5 items-center'>
                     {/* For Cart */}
                     <div>
@@ -141,9 +145,9 @@ const Navbar = () => {
                             token !== null && <ProfileDropDown/>
                         }
                     </div>
-
                 </div>
 
+                {/* Login/Signup */}
                 <div className='hidden md:flex gap-5 '>
                     {/* For Login */}   
                     {
@@ -167,6 +171,7 @@ const Navbar = () => {
                     }
                 </div>
 
+                {/* Hamburger icon for Mobile view */}
                 <button className='md:hidden' onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     <GiHamburgerMenu fontSize={24} fill="#AFB2BF"/>
                 </button>
@@ -177,6 +182,7 @@ const Navbar = () => {
 
         {isMenuOpen && (
             <div ref={menuRef} className='absolute right-4 top-14 z-[1000] w-[200px] rounded-md border border-richblack-700 bg-richblack-800 p-4 shadow-2xl md:hidden'>
+                {/* {Navbar ke Links} */}
                 <ul className='flex flex-col gap-y-3 text-richblack-25'>
                 {
                     NavbarLinks.map( (link, index) => (

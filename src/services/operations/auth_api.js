@@ -93,11 +93,8 @@ export function getPasswordResetToken(email,setEmailPresent) {
             if(!response.data.success)
             {
                 throw Error(response.data.message);
-            }
-
-            
+            }            
             setEmailPresent(true);
-
         } 
         catch(err)
         {
@@ -176,7 +173,9 @@ export const getCategory = async () =>
     let result = [];
     try{
         const response = await apiConnector('GET',GetCategory_API);
+
         // gives {id,name,description} of all category in array 
+
         console.log('Category Fetched API response : ',response);
 
         if(!response?.data?.success)

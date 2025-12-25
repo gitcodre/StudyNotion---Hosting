@@ -31,14 +31,15 @@ const UpdatePassword = () => {
     <div>
         {
             loading ? <Spinner/> : (
-                <div className='text-richblack-5 translate-x-[8rem] w-[40%] flex flex-col mx-auto mt-[13rem] max-w-maxContent'>
+                <div className='text-richblack-5 md:translate-x-[8rem] md:w-[40%] md:ml-auto ml-[2rem] flex flex-col mx-auto md:mt-[13rem] mt-[5rem] max-w-maxContent'>
                     <h1 className='text-2xl'>Choose new password</h1>
-                    <p className='text-richblack-100 my-2 w-[60%]'>Almost done. Enter your new password and youre all set.</p>
+                    <p className='text-richblack-100 my-2 md:w-[60%]'>Almost done. Enter your new password and youre all set.</p>
                     <form onSubmit={resetPasswordHandler}>
+                        {/* New Password */}
                         <label>
                             <p>New password <sup className="text-pink-200">*</sup></p>
                             <input
-                                className='w-[80%] bg-richblack-800 p-2 rounded-md my-3'
+                                className='md:w-[80%] bg-richblack-800 p-2 rounded-md my-3'
                                 required
                                 type='password'
                                 name='password'
@@ -48,10 +49,11 @@ const UpdatePassword = () => {
                             />
 
                         </label>
+                        {/* Confirm New Password */}
                         <label>
                             <p>Confirm new password <sup className="text-pink-200">*</sup></p>
                             <input
-                                className='w-[80%] bg-richblack-800 p-2 rounded-md  my-2'
+                                className='md:w-[80%] bg-richblack-800 p-2 rounded-md  my-2'
                                 required
                                 type='password'
                                 name='confirmPassword'
@@ -60,7 +62,7 @@ const UpdatePassword = () => {
                                 onChange={changeHandler}
                             />
                         </label>
-                        
+                        {/* Reset Password Button */}
                         <div>
                             <button className='bg-yellow-50 text-richblack-900 w-[80%] p-2 rounded-md mt-5 mb-3' type='submit'>
                                 Reset Password

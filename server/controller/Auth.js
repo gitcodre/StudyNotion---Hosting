@@ -199,9 +199,9 @@ exports.login = async(req,res) => {
             });
         }
         const user = await User.findOne({email}).populate('additionalDetails');
-            if(!user)
-            {
-                return res.status(401).json({
+        if(!user)
+        {
+            return res.status(401).json({
                 success:false,
                 message:'User doesnt Exist ! Please Signup first',
             }) 

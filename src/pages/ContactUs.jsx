@@ -9,9 +9,9 @@ import Footer from '../components/common/Footer';
 const ContactUs = () => {
   return (
     <div>
-        <div className='w-11/12 max-w-maxContent mx-auto mt-20 flex flex-col-reverse md:flex-row justify-between'>
+        <div className='w-11/12 max-w-maxContent mx-auto mt-20 flex flex-col md:flex-row justify-between'>
 
-            <div className='bg-richblack-800 md:w-[35%] flex flex-col gap-10 md:mb-0 mb-[5rem] text-richblack-5 p-8 rounded-md pr-[8rem] h-fit md:mt-auto mt-[3rem]'>
+            <div className='bg-richblack-800 md:w-[35%] flex flex-col gap-10 md:mb-0 mb-[5rem] text-richblack-5 p-8 rounded-md pr-[8rem] h-fit md:mt-0 mt-[3rem]'>
 
                 {/* Chat on us */}
                 <div className='flex gap-4'>

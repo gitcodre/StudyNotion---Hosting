@@ -22,6 +22,7 @@ exports.Auth = (req,res,next) => {
         try{
             const payload =  jwt.verify(token, process.env.JWT_SECRET);
             console.log(payload);
+            // Payload mei email id account type hai 
             req.user = payload;
             req.token = token;
         }

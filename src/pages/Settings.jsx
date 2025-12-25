@@ -138,6 +138,7 @@ const Settings = () => {
           <p className='text-richblack-5'>Profile Information</p>
 
           <form onSubmit={formSubmitHandler}>
+            
             <div className='flex flex-col'>
               {/* Name & Profession */}
               <div className='mt-5 md:flex gap-10'>
@@ -323,7 +324,7 @@ const Settings = () => {
               </div>
 
             </div>  
-
+            {/* Cancel/Save Button */}
             <div className='flex gap-x-3 mt-5 justify-end'>
                 <GenericBtn text={'Cancel'} onclick={resetHandler} customClasses={'text-richblack-5 border-richblack-300 border-2 p-2 rounded-md'}/>
                 <button type='submit' className='bg-yellow-200 p-2 px-4 border-richblack-5 border-1 rounded-md'>

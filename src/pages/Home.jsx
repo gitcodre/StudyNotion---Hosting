@@ -19,7 +19,7 @@ const Home = () => {
       
         {/* Section 1 */}
         <div className='w-full md:w-9/12 mx-auto mt-[6rem] '>
-
+          {/* Become an Instructor */}
           <div className="flex justify-center mb-[3rem]">
             <Link
               to="/signup"
@@ -29,7 +29,6 @@ const Home = () => {
               <FaArrowRightLong />
             </Link>
           </div>
-
 
           <div className='text-center text-4xl'>
             <p>Empower Your Future with <Spanner text={'Coding Skills'}></Spanner></p>
@@ -52,16 +51,15 @@ const Home = () => {
           {/* Video */}
           <div className='mx-14 my-7 shadow-[15px_15px_0_#ffffff]'>
             <video
-            muted
-            loop
-            autoPlay>
+              muted
+              loop
+              autoPlay>
               <source src={Banner} type='video/mp4'></source>
-              {/* Shadow Work Pending */}
             </video>
           </div>
 
             {/* Code Section 1 */}
-          <div className='w-full lg:p-0 pl-14'>
+          <div className='w-full lg:p-0 lg:pl-14'>
               <CodeBlocks
                 backgroundGradient={'bg-gradient-ellipse-1'}
                 position={"md:flex-row flex-col "}
@@ -108,7 +106,7 @@ const Home = () => {
           </div>
 
           {/* Code Section 2 */}
-          <div className='md:w-[100%] w-11/12 lg:p-0 pl-14'>
+          <div className='md:w-[100%] w-11/12 lg:p-0 lg:pl-14'>
               <CodeBlocks 
                 backgroundGradient={'bg-gradient-ellipse-2'}
                 position={"md:flex-row-reverse flex-col"}
@@ -227,6 +225,7 @@ const Home = () => {
         </div>
 
       </div>
+      
       {/* Footer */}
       <Footer/>
     </>

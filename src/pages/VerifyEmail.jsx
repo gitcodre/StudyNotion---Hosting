@@ -43,7 +43,7 @@ const VerifyEmail = () => {
                     <h2 className='text-2xl pl-1'>Verify Email</h2>
 
                     <p className='text-richblack-100 pl-2 my-2 text-sm pr-[10rem]'>A verification code has been sent to you. Enter the code below</p>
-
+                    
                     <form onSubmit={handleOnSubmit}>
                         <OTPInput
                             value={otp}
@@ -63,6 +63,7 @@ const VerifyEmail = () => {
                         </button>
                     </form>
 
+                    {/* Back to login / Resend */}
                     <div className='flex justify-between '>
                         <NavLink to={'/login'}>
                             <div className='flex gap-x-2 items-center'>

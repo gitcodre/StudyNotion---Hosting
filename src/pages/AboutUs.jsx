@@ -100,11 +100,13 @@ const AboutUs = () => {
             <StatsComponent/>
         </section>
 
+        {/* Section 5 */}
         <section>
             <LearningGrid/>
             <FeedbackForm/>
         </section>
 
+        {/* Section 6 */}
         <section className='mt-16 w-10/12 mx-auto pb-10 mb-10'>
             <div className='text-center text-4xl pb-14'>
                 Reviews from other learners
